@@ -1,0 +1,128 @@
+.uik-tooltip {
+  display: flex;
+  flex-flow: column-reverse nowrap;
+  justify-content: center;
+  align-items: center;
+  
+  .uik-tooltip__tooltip-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    opacity: 0;
+    transition: all 0.1s ease-in;
+    pointer-events: none;
+    transform: translateY(10px) scale(0.75);
+
+    .uik-tooltip__tooltip {
+      position: absolute;
+      background-color: white;
+      border-radius: 10px;
+      padding: 9px 12px;
+      border: solid 1px var(--border-color);
+      margin-bottom: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.025);
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border: inherit;
+        border-left: none;
+        border-top: 0;
+        background-color: inherit;
+        transform: rotate(45deg);
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: -6px;
+        z-index: 1;
+      }
+
+      .uik-tooltip__tooltip-text {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text);
+        line-height: 1.05;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  &--bottom {
+    flex-direction: column;
+
+    .uik-tooltip__tooltip-wrapper {
+      align-items: flex-start;
+      transform: translateY(-10px) scale(0.75);
+
+      .uik-tooltip__tooltip {
+        margin-bottom: 0;
+        margin-top: 10px;
+
+        &::after {
+          bottom: unset;
+          top: -6px;
+          transform: rotate(225deg);
+        }
+      }
+    }
+  }
+
+  &--left {
+    flex-direction: row-reverse;
+
+    .uik-tooltip__tooltip-wrapper {
+      align-items: center;
+      justify-content: flex-end;
+      transform: translateX(10px) scale(0.75);
+
+      .uik-tooltip__tooltip {
+        margin-bottom: 0;
+        margin-right: 10px;
+
+        &::after {
+          bottom: unset;
+          left: unset;
+          right: -6px;
+          top: calc(50% - 5px);
+          margin: 0;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  &--right {
+    flex-direction: row;
+
+    .uik-tooltip__tooltip-wrapper {
+      align-items: center;
+      justify-content: flex-start;
+      transform: translateX(-10px) scale(0.75);
+
+      .uik-tooltip__tooltip {
+        margin-bottom: 0;
+        margin-left: 10px;
+
+        &::after {
+          bottom: unset;
+          right: unset;
+          left: -6px;
+          top: calc(50% - 5px);
+          margin: 0;
+          transform: rotate(-225deg);
+        }
+      }
+    }
+  }
+
+  &:hover {
+    .uik-tooltip__tooltip-wrapper {
+      transform: none;
+      opacity: 1;
+      transition-delay: var(--delay);
+    }
+  }
+}

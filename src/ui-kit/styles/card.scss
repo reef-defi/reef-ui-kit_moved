@@ -1,0 +1,44 @@
+.uik-card {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  padding: 25px 30px;
+  width: 100%;
+  
+  .uik-card__head {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+   
+    .uik-card__title {
+      font-size: 20px;
+      color: var(--text);
+      line-height: 1.25;
+      font-weight: 600;
+
+      &--center {
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      &--right {
+        flex-grow: 1;
+        text-align: right;
+      }
+    }
+
+    & + .uik-card__content {
+      margin-top: 10px;
+    }
+  }
+  
+  .uik-card__content {
+    width: 100%;
+  }
+  
+  &--condensed {
+    padding: 15px;
+  }
+}

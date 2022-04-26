@@ -1,0 +1,236 @@
+.uik-button {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #e7def0;
+  border: none;
+  white-space: nowrap;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  line-height: 1.05;
+  font-weight: 600;
+  padding: 12px 18px;
+  user-select: none;
+  color: var(--primary);
+  transition: all 0.125s;
+
+  .uik-button__icon {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+
+  .uik-button__icon + .uik-button__text,
+  .uik-button__text + .uik-button__icon {
+    margin-left: 0.5rem;
+  }
+
+  &--icon {
+    padding: 10px;
+  }
+  
+  &--small {
+    font-size: 0.813rem;
+    padding: 11px 15px;
+    border-radius: 10px;
+
+    .uik-button__icon {
+      width: 0.813rem;
+      height: 0.813rem;
+    }
+
+    .uik-button__icon + .uik-button__text,
+    .uik-button__text + .uik-button__icon {
+      margin-left: 0.5rem;
+    }
+  }
+
+  &--large {
+    font-size: 0.938rem;
+    padding: 15px 22px;
+    border-radius: 14px;
+
+    &.uik-button--icon {
+      padding: 14px;
+    }
+
+    .uik-button__icon {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .uik-button__icon + .uik-button__text,
+    .uik-button__text + .uik-button__icon {
+      margin-left: 0.75rem;
+    }
+  }
+
+  &:hover {
+    transition: none;
+    cursor: pointer;
+    background-color: #e1d5ec;
+  }
+  
+  &:active {
+    transition: all 0.125s;
+    background-color: #dacce8;
+  }
+
+  &--neomorph {
+    box-shadow: var(--neomorph-out);
+    
+    &, &:hover, &:active {
+      transition: all 0.125s;
+      background-color: transparent;
+    }
+    
+    &:hover {
+      box-shadow: var(--neomorph-out-light), var(--neomorph-in-light);
+    }
+
+    &:active {
+      box-shadow: var(--neomorph-out-light), var(--neomorph-in);
+    }
+  }
+
+  &--rounded {
+    border-radius: 99px;
+  }
+
+  &--fill {
+    font-weight: 500;
+    color: white;
+    background: linear-gradient(135deg, #ae27a5, #742cb2);
+    box-shadow: 0 5px 20px -10px #742cb2;
+
+    &:hover {
+      filter: brightness(1.15);
+    }
+    
+    &:active {
+      filter: brightness(1.25);
+    }
+  }
+
+  &--danger {
+    font-weight: 500;
+    color: white;
+    background-color: var(--danger);
+
+    &:hover {
+      background-color: hsl(var(--danger--h), var(--danger--s), calc(var(--danger--l) - 10%));
+    }
+    
+    &:active {
+      background-color: hsl(var(--danger--h), var(--danger--s), calc(var(--danger--l) - 15%));
+    }
+  }
+
+  &--success {
+    font-weight: 500;
+    color: white;
+    background-color: var(--success);
+    
+    &:hover {
+      background-color: hsl(var(--success--h), var(--success--s), calc(var(--success--l) - 5%));
+    }
+    
+    &:active {
+      background-color: hsl(var(--success--h), var(--success--s), calc(var(--success--l) - 7.5%));
+    }
+  }
+
+  &--loading {
+    pointer-events: none;
+    position: relative;
+    min-width: 40px;
+    overflow: hidden;
+
+    .uik-button__text,
+    .uik-button__icon {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .uik-loading {
+      position: absolute;
+
+      .uik-loading__spinner {
+        width: 14px;
+        height: 14px;
+      }
+    }
+
+    .fish-animation {
+      position: absolute;
+      height: 100%;
+      backdrop-filter: none;
+
+      .fish-animation__fish {
+        animation-duration: 2s;
+        width: 26px;
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &.uik-button--large {
+      .uik-loading {
+        .uik-loading__spinner {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      .fish-animation {
+        .fish-animation__fish {
+          width: 36px;
+        }
+      }
+    }
+
+    &.uik-button--small {
+      .fish-animation {
+        .fish-animation__fish {
+          width: 20px;
+        }
+      }
+    }
+
+    &.uik-button--fill,
+    &.uik-button--danger,
+    &.uik-button--success {
+      .uik-loading {
+        .uik-loading__spinner {
+          .uik-loading__spinner-dot {
+            &::before {
+              background: white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &--disabled {
+    pointer-events: none;
+    background-color: var(--border-color-dark);
+    color: var(--text-light);
+
+    .uik-loading {
+      .uik-loading__text {
+        color: var(--text-light);
+      }
+  
+      .uik-loading__spinner {
+        .uik-loading__spinner-dot {
+          &::before {
+            background-color: var(--text-light);
+          }
+        }
+      }
+    }
+  }
+}

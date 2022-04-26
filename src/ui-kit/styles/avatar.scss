@@ -1,0 +1,134 @@
+.uik-avatar {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  .uik-avatar__avatar {
+    border: solid 3px white;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: var(--border-color);
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 3px 15px -5px rgba(black, 0.2),
+      inset 0 2px 2px rgba(white, 0.1),
+      inset 0 -2px 5px rgba(black, 0.05);
+
+    $backgrounds: (
+      2: 'red',
+      10: 'red',
+
+      5: 'orange',
+      13: 'orange',
+      28: 'orange',
+      8: 'orange',
+      
+      12: 'yellow',
+      26: 'yellow',
+      35: 'yellow',
+      
+      6: 'lime',
+      9: 'lime',
+      18: 'lime',
+      29: 'lime',
+      
+      21: 'green',
+      4: 'green',
+      24: 'green',
+      15: 'green',
+      
+      33: 'cyan',
+      30: 'cyan',
+      16: 'cyan',
+      25: 'cyan',
+      
+      19: 'blue',
+      23: 'blue',
+      31: 'blue',
+      32: 'blue',
+
+      1: 'purple',
+      20: 'purple',
+      7: 'purple',
+      11: 'purple',
+      
+      17: 'pink',
+      14: 'pink',
+      22: 'pink',
+
+      3: 'secondary',
+      27: 'secondary',
+      34: 'secondary',
+      36: 'secondary'
+    );
+    
+    @each $avatar, $color in $backgrounds {
+      &--#{"" + $avatar} {
+        background-color: var(--#{"" + $color});
+      }
+    }
+  }
+
+  .uik-avatar__name {
+    font-size: 0.938rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--text);
+    max-width: 12.5rem;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+
+  &--small {
+    .uik-avatar__avatar {
+      width: 30px;
+      min-width: 30px;
+      height: 30px;
+      border-radius: 12px;
+    }
+
+    .uik-avatar__name {
+      font-size: 0.875rem;
+      margin-left: 8px;
+    }
+  }
+
+  &--large {
+    .uik-avatar__avatar {
+      width: 50px;
+      min-width: 50px;
+      height: 50px;
+      border-width: 4px;
+      border-radius: 18px;
+    }
+
+    .uik-avatar__name {
+      font-size: 1rem;
+      margin-left: 12px;
+    }
+  }
+
+  &--extra-large {
+    .uik-avatar__avatar {
+      width: 80px;
+      min-width: 80px;
+      height: 80px;
+      border-width: 4px;
+      border-radius: 20px;
+      box-shadow: 0 3px 15px -5px rgba(black, 0.15),
+        inset 0 2px 2px rgba(white, 0.1),
+        inset 0 -2px 5px rgba(black, 0.05);
+    }
+
+    .uik-avatar__name {
+      font-size: 1.125rem;
+      margin-left: 15px;
+    }
+  }
+}

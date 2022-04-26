@@ -1,0 +1,21 @@
+.uik-copy-button {
+  display: flex;
+  border: none;
+  background-color: transparent;
+  color: var(--text-light);
+  transition: all 0.125s;
+  cursor: pointer;
+  
+  .uik-icon {
+    width: 12px;
+    transform: translateY(-1px);
+  }
+
+  &:hover, &:active {
+    color: var(--primary);
+  }
+
+  &:active {
+    transform: scale(1.15);
+  }
+}

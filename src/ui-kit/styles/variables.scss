@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@mixin color($name, $color) {
+  --#{$name}: #{$color};
+  --#{$name}--h: #{hue($color)};
+  --#{$name}--s: #{saturation($color)};
+  --#{$name}--l: #{lightness($color)};
+  --#{$name}--a: #{alpha($color)};
+}
+
+:root {
+  @include color('bg', #eeebf6);
+  @include color('primary', #a93185);
+  @include color('secondary', #5d3bad);
+  @include color('danger', #e73644);
+  @include color('success', #35c57d);
+  @include color('text', #19233c);
+  @include color('text-light', #898e9c);
+  @include color('border-color', #eaedf3);
+  @include color('border-color-light', #eff2f6);
+  @include color('border-color-dark', #d8dce6);
+
+  @include color('red', #d93636);
+  @include color('orange', #ff9f1a);
+  @include color('yellow', #eec700);
+  @include color('lime', #8acc47);
+  @include color('green', #47cc8a);
+  @include color('cyan', #30bfbf);
+  @include color('blue', #00aaff);
+  @include color('purple', #8f7ee6);
+  @include color('pink', #e16ab8);
+  @include color('gray', #98a4b3);
+
+  --font-family: 'Poppins', sans-serif;
+
+  --gradient: linear-gradient(to right, var(--primary), var(--secondary));
+  
+  --border: solid 1px var(--border-color);
+  --border-light: solid 1px var(--border-color-light);
+  --border-dark: solid 1px var(--border-color-dark);
+  
+  --shadow: 0 3px 30px 0 rgba(0, 0, 0, 0.07);
+  --shadow-strong: 0 0 25px -5px rgba(0, 0, 0, 0.1), var(--shadow);
+  --neomorph-out: 10px 10px 20px -5px hsl(
+    var(--bg--h),
+    var(--bg--s),
+    calc(var(--bg--l) - 10%)
+  ),
+  -10px -10px 20px -5px hsl(
+    var(--bg--h),
+    var(--bg--s),
+    calc(var(--bg--l) + 10%)
+  );
+  --neomorph-out-light: 10px 10px 20px -5px hsl(
+    var(--bg--h),
+    var(--bg--s),
+    calc(var(--bg--l) - 5%)
+  ),
+  -10px -10px 20px -5px hsl(
+    var(--bg--h),
+    var(--bg--s),
+    calc(var(--bg--l) + 5%)
+  );
+  --neomorph-in: inset 3px 3px 6px -1.5px hsl(
+    var(--bg--h),
+    var(--bg--s),
+    calc(var(--bg--l) - 10%)
+  ),
+  inset -3px -3px 6px -1.5px hsl(
+    var(--bg--h),
+    var(--bg--s),
+    calc(var(--bg--l) + 10%)
+  );
+  --neomorph-in-light: inset 3px 3px 6px -1.5px hsl(
+    var(--bg--h),
+    var(--bg--s),
+    calc(var(--bg--l) - 5%)
+  ),
+  inset -3px -3px 6px -1.5px hsl(
+    var(--bg--h),
+    var(--bg--s),
+    calc(var(--bg--l) + 5%)
+  );
+}

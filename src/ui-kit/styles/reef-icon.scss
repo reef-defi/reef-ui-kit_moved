@@ -1,0 +1,12 @@
+.reef-icon {
+  width: auto; // 48px
+  height: 48px;
+
+  .reef-icon__circle {
+    fill:url(#reef-icon-gradient);
+  }
+	
+  .reef-icon__r {
+    fill:white;
+  }
+}

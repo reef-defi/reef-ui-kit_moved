@@ -1,0 +1,12 @@
+.reef-logo {
+  width: auto; // 84px
+  height: 42px;
+
+  .reef-logo__reef {
+    fill:url(#reef-logo-gradient);
+  }
+
+  .reef-logo__dot {
+    fill:#5D3BAD;
+  }
+}

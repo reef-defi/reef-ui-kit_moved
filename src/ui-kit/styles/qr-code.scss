@@ -1,0 +1,29 @@
+.uik-qr-code {
+  --size: 100px;
+  --bg-color: transparent;
+  --color: hsla(
+    var(--text--h),
+    var(--text--s),
+    var(--text--l),
+    0.9
+  );
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    height: var(--size) !important;
+    width: var(--size) !important;
+
+    path[fill='#FFFFFF'] {
+      fill: var(--bg-color) !important;
+      transition: fill 0.15s;
+    }
+
+    path[fill='#000000'] {
+      fill: var(--color) !important;
+      transition: fill 0.15s;
+    }
+  }
+}

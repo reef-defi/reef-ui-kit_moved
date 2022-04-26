@@ -1,0 +1,9 @@
+.reef-sign {
+  width: auto; // 40px
+  height: 46px;
+  color: var(--primary);
+
+  .reef-sign__sign {
+    fill: currentColor;
+  }
+}

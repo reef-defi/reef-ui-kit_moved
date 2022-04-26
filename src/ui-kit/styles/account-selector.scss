@@ -1,0 +1,321 @@
+.uik-account-selector {
+  .uik-account-selector__wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    max-height: 100vh;
+    z-index: 1000;
+    background-color: var(--bg);
+    overflow: auto;
+
+    &.enter {
+      transform: translateY(-100%);
+      background-color: hsl(
+        var(--bg--h),
+        var(--bg--s),
+        calc(var(--bg--l) + 10%)
+      );
+
+      .uik-account-selector__content {
+        opacity: 0;
+      }
+    }
+  
+    &.enter-active,
+    &.enter-done,
+    &.exit {
+      opacity: 1;
+      transform: none;
+      background-color: var(--bg);
+
+      .uik-account-selector__content {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  
+    &.exit-active {
+      transform: translateY(-100%);
+
+      .uik-account-selector__content {
+        opacity: 0;
+      }
+    }
+
+    &.enter-active,
+    &.exit-active {
+      transition: all 0.5s;
+    }
+
+    &.enter-active {
+      .uik-account-selector__content {
+        transition-delay: 0.35s;
+      }
+    }
+
+    .uik-account-selector__content {
+      width: 100%;
+      padding: 50px;
+      max-width: 900px;
+      margin: 0 auto;
+      transition: all 0.35s;
+
+      .uik-account-selector__head {
+        margin-top: -10px;
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+
+        .uik-account-selector__title {
+          font-size: 1.625rem;
+          line-height: 1.2;
+          font-weight: 500;
+          color: hsla(
+            var(--text--h),
+            var(--text--s),
+            var(--text--l),
+            0.9
+          );
+        }
+
+        .uik-account-selector__close-btn {
+          position: absolute;
+          right: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 54px;
+          height: 54px;
+          min-width: 54px;
+          border-radius: 50%;
+          background-color: transparent;
+          border: none;
+          transition: all 0.125s;
+          color: var(--text-light);
+          box-shadow: var(--neomorph-out);
+          
+          .uik-modal__close-btn-icon {
+            width: 14px;
+            height: 22px;
+          }
+          
+          &:hover {
+            color: var(--primary);
+            cursor: pointer;
+            box-shadow: var(--neomorph-out-light), var(--neomorph-in-light);
+          }
+      
+          &:active {
+            color: var(--primary);
+            box-shadow: var(--neomorph-out-light), var(--neomorph-in);
+          }
+        }
+      }
+
+      .uik-account-selector__accounts {
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 40px;
+
+        .uik-account-selector__account {
+          & + .uik-account-selector__account {
+            margin-top: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.uik-account-selector-account {
+  width: 100%;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: var(--neomorph-out);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: none;
+  background-color: transparent;
+  transition: all 0.125s;
+
+  .uik-account-selector-account__identicon {
+    pointer-events: none;
+  }
+
+  .uik-account-selector-account__info {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 20px;
+
+    > * {
+      & + * {
+        margin-top: 4px;
+      }
+    }
+
+    .uik-account-selector-account__name {
+      font-size: 1.125rem;
+      line-height: 1.2;
+      font-weight: 500;
+      color: var(--text);
+      
+      & + .uik-account-selector-account__address {
+        margin-top: 6px;
+      }
+    }
+
+    .uik-account-selector-account__address {
+      font-size: 0.813rem;
+      line-height: 1.2;
+      font-weight: 500;
+      color: hsla(
+        var(--text--h),
+        var(--text--s),
+        var(--text--l),
+        0.65
+      );
+      text-align: left;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+      align-items: center;
+
+      .uik-copy-button {
+        margin-left: 3px;
+      }
+    }
+
+    .uik-account-selector-account__open-btn {
+      color: var(--primary);
+      font-size: 0.813rem;
+      line-height: 1.2;
+      font-weight: 500;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .uik-account-selector-account__qr-code {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    padding: 10px;
+    box-shadow: var(--neomorph-in);
+    border-radius: 10px;
+    transition: all 0.125s;
+    margin-left: auto;
+    pointer-events: none;
+
+    .uik-qr-code {
+      --size: 66px;
+    }
+  }
+  
+  &:hover {
+    cursor: pointer;
+    box-shadow: var(--neomorph-out-light),
+    inset 7.5px 7.5px 15px -3.75px hsl(
+      var(--bg--h),
+      var(--bg--s),
+      calc(var(--bg--l) - 7.5%)
+    ),
+    inset -7.5px -7.5px 15px -3.75px hsl(
+      var(--bg--h),
+      var(--bg--s),
+      calc(var(--bg--l) + 7.5%)
+    );
+  }
+
+  &:active {
+    cursor: pointer;
+    box-shadow: var(--neomorph-out-light),
+    inset 10px 10px 20px -5px hsl(
+      var(--bg--h),
+      var(--bg--s),
+      calc(var(--bg--l) - 10%)
+    ),
+    inset -10px -10px 20px -5px hsl(
+      var(--bg--h),
+      var(--bg--s),
+      calc(var(--bg--l) + 10%)
+    );
+  }
+
+  &--selected {
+    position: relative;
+    animation: uik-account-selector-account-selected 0.25s ease-out;
+
+    @keyframes uik-account-selector-account-selected {
+      from {
+        opacity: 0.35;
+        transform: scale(0.965);
+      }
+    }
+
+    $borderWidth: 3px;
+    
+    &, &:hover, &:active {
+      box-shadow: 0 10px 25px -15px rgba(#742cb2, 0.5);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--gradient);
+      border-radius: inherit;
+      z-index: 1;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: $borderWidth;
+      top: $borderWidth;
+      width: calc(100% - #{$borderWidth} * 2);
+      height: calc(100% - #{$borderWidth} * 2);
+      background: var(--bg);
+      opacity: 0.85;
+      border-radius: calc(15px - #{$borderWidth});
+      z-index: 1;
+    }
+
+    > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .uik-account-selector-account__selected-tag {
+      position: absolute;
+      z-index: 3;
+      left: 0;
+      top: 0;
+      background-color: var(--primary);
+      color: white;
+      font-size: 12px;
+      letter-spacing: 0.1px;
+      display: flex;
+      padding: 3px 11px;
+      border-radius: 15px 0 15px 0;
+    }
+
+    .uik-account-selector-account__qr-code {
+      box-shadow: none;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.fish-animation {
+  margin: 0 !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  
+  .fish-animation__fish {
+    width: 60px;
+    z-index: 1;
+    position: absolute;
+    animation: fish-animation 6s linear infinite;
+    
+    @keyframes fish-animation {
+      from, 10% {
+        left: 0;
+        transform: translateX(-100%);
+      }
+    
+      90%, 100% {
+        left: 100%;
+        transform: none;
+      }
+    }
+  }
+  
+  .fish-animation__fin {
+    animation: fish-animation-fin 0.2s linear infinite;
+    
+    @keyframes fish-animation-fin {
+      from, to {
+        transform: none;
+      }
+    
+      50% {
+        transform: scaleX(0.8) translateX(6%);
+      }
+    }
+  }
+}

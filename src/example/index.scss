@@ -1,0 +1,352 @@
+main {
+  width: 100%;
+}
+
+.example {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 100px;
+  padding-top: 50px;
+
+  > * {
+    & + *:not(.uik-divider) {
+      margin-top: 25px;
+    }
+
+    &.uik-divider + * {
+      margin-top: 50px;
+    }
+  }
+  
+  > .fish-animation {
+    position: relative;
+    height: 100px;
+  }
+
+  .example__open-dropdown {
+    width: auto;
+    height: auto;
+    margin-top: 25px !important;
+
+    .uik-dropdown__dropdown {
+      position: relative;
+    }
+
+    .uik-dropdown__overlay {
+      display: none;
+    }
+  }
+
+  .example__open-modal {
+    .uik-modal__container {
+      position: static;
+      height: auto;
+      min-height: unset;
+      max-height: unset;
+    }
+
+    .uik-modal__overlay {
+      display: none;
+    }
+  }
+}
+
+.navigation {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  height: 100vh;
+  background-color: white;
+  box-shadow: 3px 0 30px rgba(black, 0.07);
+  width: 200px;
+
+  .navigation__head {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px 0 10px 22px;
+  }
+
+  .navigation__links {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0 10px 10px 10px;
+    padding-top: 0;
+    max-height: calc(100vh - 72px);
+    overflow: auto;
+    overscroll-behavior: contain;
+    
+    &::-webkit-scrollbar {
+      display: none;
+      width: 8px;
+    }
+    
+    &:hover {
+      &::-webkit-scrollbar {
+        display: block;
+      }
+    }
+    
+    .navigation__link-title {
+      letter-spacing: 0.031rem;
+      margin: 7px 0 0 14px;
+      font-size: 0.813rem;
+      font-weight: 400;
+      color: var(--text-light);
+    }
+
+    button {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      border: none;
+      background-color: transparent;
+      font-size: 0.938rem;
+      font-weight: 500;
+      color: var(--text);
+      padding: 7px 14px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.125s;
+
+      &:hover {
+        transition: none;
+        background-color: var(--border-color);
+        color: var(--primary);
+      }
+
+      &:active {
+        transition: all 0.125s;
+        background-color: var(--border-color-dark);
+        color: var(--primary);
+      }
+
+      & + .navigation__link-title {
+        margin-top: 14px;
+      }
+    }
+  }
+
+  & + main {
+    padding-left: 200px;
+  }
+}
+
+.example-font {
+  .uik-text {
+    font-weight: 500;
+    font-size: 1.313rem;
+  }
+
+  .example-font__example {
+    font-size: 1.313rem;
+
+    &--400 {
+      font-weight: 400;
+    }
+
+    &--500 {
+      font-weight: 500;
+    }
+
+    &--600 {
+      font-weight: 600;
+    }
+
+    &--700 {
+      font-weight: 700;
+    }
+  }
+}
+
+.example-colors {
+  width: 100%;
+
+  .uik-label {
+    margin-bottom: 20px;
+  }
+
+  .example-colors__colors {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 25px;
+  
+    .example-colors__color {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+      align-items: center;
+  
+      .uik-tooltip__tooltip {
+        text-transform: uppercase;
+      }
+  
+      .example-colors__color-preview {
+        border: solid 4px white;
+        width: 44px;
+        height: 44px;
+        border-radius: 16px;
+        box-shadow: 0 3px 15px -5px rgba(black, 0.2),
+          inset 0 2px 2px rgba(white, 0.1),
+          inset 0 -2px 5px rgba(black, 0.05);
+        
+        &--bg {
+          background: var(--bg);
+        }
+  
+        &--primary {
+          background: var(--primary);
+        }
+  
+        &--secondary {
+          background: var(--secondary);
+        }
+  
+        &--danger {
+          background: var(--danger);
+        }
+  
+        &--success {
+          background: var(--success);
+        }
+  
+        &--text {
+          background: var(--text);
+        }
+  
+        &--text-light {
+          background: var(--text-light);
+        }
+  
+        &--border-color {
+          background: var(--border-color);
+        }
+  
+        &--border-color-light {
+          background: var(--border-color-light);
+        }
+  
+        &--border-color-dark {
+          background: var(--border-color-dark);
+        }
+  
+        &--gradient {
+          background: var(--gradient);
+        }
+  
+        &--red {
+          background-color: var(--red);
+        }
+  
+        &--orange {
+          background-color: var(--orange);
+        }
+  
+        &--yellow {
+          background-color: var(--yellow);
+        }
+  
+        &--lime {
+          background-color: var(--lime);
+        }
+  
+        &--green {
+          background-color: var(--green);
+        }
+  
+        &--cyan {
+          background-color: var(--cyan);
+        }
+  
+        &--blue {
+          background-color: var(--blue);
+        }
+  
+        &--purple {
+          background-color: var(--purple);
+        }
+  
+        &--pink {
+          background-color: var(--pink);
+        }
+  
+        &--gray {
+          background-color: var(--gray);
+        }
+      }
+  
+      .example-colors__color-info {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: flex-start;
+        margin-left: 14px;
+  
+        .example-colors__color-name {
+          font-size: 0.875rem;
+          font-weight: 500;
+          line-height: 1.2;
+          color: var(--text);
+        }
+  
+        .example-colors__color-variable {
+          font-size: 0.75rem;
+          font-weight: 400;
+          line-height: 1.2;
+          margin-top: 1px;
+          color: var(--text-light);
+        }
+      }
+    }
+
+    & + .uik-label {
+      margin-top: 40px;
+    }
+  }
+}
+
+.example-reef-logo {
+  height: 100px;
+}
+
+.example-reef-sign {
+  height: 100px;
+}
+
+.example-reef-icon {
+  height: 100px;
+}
+
+.example-icon {
+  color: var(--text-light);
+}
+
+.example-bubbles {
+  padding: 0;
+  background: linear-gradient(to bottom, var(--secondary), var(--primary));
+  height: 200px;
+  position: relative;
+}
+
+.example-avatar__title {
+  margin-top: 50px !important;
+}
+
+.example-copy-btn {
+  .uik-icon {
+    width: 20px;
+  }
+}

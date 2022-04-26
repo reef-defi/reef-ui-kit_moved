@@ -1,0 +1,38 @@
+.uik-notifications {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  right: 0;
+  padding: 15px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 27rem;
+  max-width: 100%;
+
+  .uik-alert {
+    width: 100%;
+    animation: uik-open-notification 0.5s;
+    
+    @keyframes uik-open-notification {
+      from {
+        transform: translateX(calc(100% + 15px));
+      }
+    }
+
+    &--close {
+      animation: uik-close-notification 0.25s ease-in;
+    
+      @keyframes uik-close-notification {
+        to {
+          transform: translateX(calc(100% + 15px));
+        }
+      }
+    }
+
+    & + .uik-alert {
+      margin-top: 10px;
+    }
+  }
+}

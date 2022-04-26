@@ -1,0 +1,79 @@
+.uik-action-button {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #c52cbc, #8332ca);
+  box-shadow: 0 15px 25px -15px #8332ca;
+  color: white;
+  padding: 20px 25px 15px 25px;
+  min-width: 100px;
+  text-decoration: none;
+  border-radius: 18px;
+  border: none;
+  transition: all 0.1s;
+
+  .uik-action-button__icon {
+    height: 1.625rem;
+    width: 1.625rem;
+  }
+  
+  .uik-action-button__text {
+    margin-top: 0.625rem;
+    font-size: 0.875rem;
+    line-height: 1.8;
+    font-weight: 500;
+  }
+
+  .reef-sign {
+    color: white;
+    height: 1.875rem;
+    margin-bottom: -0.25rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+
+  &:active {
+    transform: scale(.95);
+    filter: brightness(1.1);
+  }
+
+  $colors: (
+    'red',
+    'orange',
+    'yellow',
+    'lime',
+    'green',
+    'cyan',
+    'blue',
+    'purple',
+    'pink'
+  );
+
+  @each $color in $colors {
+    &--#{"" + $color} {
+      background: linear-gradient(
+        135deg,
+        hsl(
+          var(--#{"" + $color}--h),
+          var(--#{"" + $color}--s),
+          calc(var(--#{"" + $color}--l) + 5%)
+        ),
+        hsl(
+          var(--#{"" + $color}--h),
+          var(--#{"" + $color}--s),
+          calc(var(--#{"" + $color}--l) - 5%)
+        ),
+      );
+      box-shadow: 0 15px 25px -15px hsl(
+        var(--#{"" + $color}--h),
+        var(--#{"" + $color}--s),
+        calc(var(--#{"" + $color}--l) - 5%)
+      );
+    }
+  }
+}

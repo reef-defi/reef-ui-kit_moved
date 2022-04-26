@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+* {
+  &::-webkit-scrollbar {
+    background: transparent;
+    width: 10px;
+    height: 10px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    border-radius: 99px;
+  }
+  
+  &::-webkit-scrollbar-thumb:vertical {
+    background-image: linear-gradient(to bottom, var(--primary), var(--secondary));
+
+    &:hover {
+      background-image: linear-gradient(
+        to bottom,
+        hsl(var(--primary--h), var(--primary--s), calc(var(--primary--l) + 5%)),
+        hsl(var(--secondary--h), var(--secondary--s), calc(var(--primary--l) + 5%))
+      );
+    }
+
+    &:active {
+      background-image: linear-gradient(
+        to bottom,
+        hsl(var(--primary--h), var(--primary--s), calc(var(--primary--l) - 5%)),
+        hsl(var(--secondary--h), var(--secondary--s), calc(var(--primary--l) - 5%))
+      );
+    }
+  }
+
+  &::-webkit-scrollbar-thumb:horizontal {
+    background-image: linear-gradient(to right, var(--primary), var(--secondary));
+
+    &:hover {
+      background-image: linear-gradient(
+        to right,
+        hsl(var(--primary--h), var(--primary--s), calc(var(--primary--l) + 5%)),
+        hsl(var(--secondary--h), var(--secondary--s), calc(var(--primary--l) + 5%))
+      );
+    }
+
+    &:active {
+      background-image: linear-gradient(
+        to right,
+        hsl(var(--primary--h), var(--primary--s), calc(var(--primary--l) - 5%)),
+        hsl(var(--secondary--h), var(--secondary--s), calc(var(--primary--l) - 5%))
+      );
+    }
+  }
+}
+
+body {
+  background: var(--bg);
+  overflow-x: hidden;
+  margin: 0;
+}
