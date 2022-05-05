@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import Uik from "./../../ui-kit"
 import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
+import Title from "./Title"
 
 function Example () {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setOpen] = useState(false)
 
   const [position, setPosition] = useState("")
 
@@ -18,7 +19,7 @@ function Example () {
 
   return (
     <>
-      <Uik.Divider text='Dropdown'/>
+      <Title text='Dropdown' code={code}/>
 
       <Uik.Dropdown className='example__open-dropdown' isOpen={true} onClose={() => {}}>
           <Uik.DropdownItem icon={faArrowsRotate} text='Dropdown item' onClick={() => {}}/>
@@ -48,12 +49,12 @@ function Example () {
         size='large'
         text={ isOpen ? 'Close dropdown' : 'Test dropdown' }
         fill
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setOpen(!isOpen)}
       />
 
       <Uik.Dropdown
         isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
+        onClose={() => setOpen(false)}
         // @ts-ignore-next-line
         position={position}
       >
@@ -67,5 +68,43 @@ function Example () {
     </>
   )
 }
+
+const code = `const [isOpen, setOpen] = useState(false)
+
+<>
+  <Uik.Dropdown
+    isOpen={isOpen}
+    onClose={() => setOpen(false)}
+  >
+      <Uik.DropdownItem
+        icon={faArrowsRotate}
+        text='Dropdown item'
+        onClick={() => {}}
+      />
+      <Uik.DropdownItem
+        icon={faArrowsRotate}
+        text='Dropdown item'
+        onClick={() => {}}
+      />
+      <Uik.DropdownItem
+        icon={faArrowsRotate}
+        text='Dropdown item'
+        onClick={() => {}}
+      />
+      
+      <Uik.Divider/>
+
+      <Uik.DropdownItem
+        icon={faArrowsRotate}
+        text='Dropdown item'
+        onClick={() => {}}
+      />
+      <Uik.DropdownItem
+        icon={faArrowsRotate}
+        text='Dropdown item'
+        onClick={() => {}}
+      />
+  </Uik.Dropdown>
+</>`
 
 export default Example

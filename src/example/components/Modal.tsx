@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import Uik from "./../../ui-kit"
+import Title from "./Title"
 
 function Example () {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setOpen] = useState(false)
 
   return (
     <>
-      <Uik.Divider text='Modal'/>
+      <Title text='Modal' code={code}/>
         
       <Uik.Modal
         className='example__open-modal'
@@ -27,19 +28,19 @@ function Example () {
         size='large'
         text={ isOpen ? 'Close modal' : 'Test modal' }
         fill
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setOpen(!isOpen)}
       />
 
       <Uik.Modal
         title='Title'
         isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
+        onClose={() => setOpen(false)}
         onOpened={() => {}}
         onClosed={() => {}}
         footer={
           <>
-            <Uik.Button text='Close' onClick={() => setIsOpen(false)}/>
-            <Uik.Button text='Confirm' fill onClick={() => setIsOpen(false)}/>
+            <Uik.Button text='Close' onClick={() => setOpen(false)}/>
+            <Uik.Button text='Confirm' fill onClick={() => setOpen(false)}/>
           </>
         }
       >
@@ -48,5 +49,25 @@ function Example () {
     </>
   )
 }
+
+const code = `const [isOpen, setOpen] = useState(false)
+
+<>
+  <Uik.Modal
+    title='Title'
+    isOpen={isOpen}
+    onClose={() => setOpen(false)}
+    onOpened={() => {}}
+    onClosed={() => {}}
+    footer={
+      <>
+        <Uik.Button text='Close' onClick={() => setOpen(false)}/>
+        <Uik.Button text='Confirm' fill onClick={() => setOpen(false)}/>
+      </>
+    }
+  >
+    <Uik.Text>Place modal content here ...</Uik.Text>
+  </Uik.Modal>
+</>`
 
 export default Example

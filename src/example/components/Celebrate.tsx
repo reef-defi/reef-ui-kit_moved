@@ -1,9 +1,10 @@
 import Uik from "./../../ui-kit"
+import Title from "./Title"
 
 function Example () {
   return (
     <>
-      <Uik.Divider text='Celebrate'/>
+      <Title text='Celebrate' code={code}/>
 
       <Uik.Container>
         <Uik.Button
@@ -23,5 +24,21 @@ function Example () {
     </>
   )
 }
+
+const code = `<>
+  <Uik.Button
+    text='Drop Confetti'
+    fill
+    size='large'
+    onClick={() => Uik.dropConfetti() }
+  />
+
+  <Uik.Button
+    text='Drop Money'
+    success
+    size='large'
+    onClick={() => Uik.dropMoney() }
+  />
+</>`
 
 export default Example

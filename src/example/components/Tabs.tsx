@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Uik from "./../../ui-kit"
+import Title from "./Title"
 
 function Example () {
   const [firstTab, setFirstTab] = useState("First")
@@ -7,7 +8,7 @@ function Example () {
 
   return (
     <>
-      <Uik.Divider text='Tabs'/>
+      <Title text='Tabs' code={code}/>
         
       <Uik.Tabs
         value={firstTab}
@@ -29,5 +30,28 @@ function Example () {
     </>
   )
 }
+
+const code = `const [firstTab, setFirstTab] = useState("First")
+const [secondTab, setSecondTab] = useState("tokens")
+
+<>
+  <Uik.Tabs
+    value={firstTab}
+    onChange={value => setFirstTab(value)}
+    options={["First", "Second", "Third"]}
+  />
+
+  <Uik.Tabs
+    value={secondTab}
+    onChange={value => setSecondTab(value)}
+    options={[
+      { value: 'tokens', text: 'Tokens' },
+      { value: 'pools', text: 'Pools' },
+      { value: 'staking', text: 'Staking', indicator: '3' },
+      { value: 'nfts', text: 'NFTs' },
+      { value: 'activity', text: 'Activity' },
+    ]}
+  />
+</>`
 
 export default Example

@@ -1,9 +1,10 @@
 import Uik from "./../../ui-kit"
+import Title from "./Title"
 
 function Example () {
   return (
     <>
-      <Uik.Divider text='Loading'/>
+      <Title text='Loading' code={code}/>
 
       <Uik.Container flow='spaceBetween'>
         <Uik.Loading/>
@@ -15,5 +16,13 @@ function Example () {
     </>
   )
 }
+
+const code = `<>
+  <Uik.Loading/>
+  <Uik.Loading color='white'/>
+  <Uik.Loading color='black'/>
+  <Uik.Loading size='small'/>
+  <Uik.Loading text='Loading ...'/>
+</>`
 
 export default Example

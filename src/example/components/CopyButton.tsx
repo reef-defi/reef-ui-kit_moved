@@ -1,9 +1,10 @@
 import Uik from "./../../ui-kit"
+import Title from "./Title"
 
 function Example () {
   return (
     <>
-      <Uik.Divider text='Copy Button'/>
+      <Title text='Copy Button' code={code}/>
         
       <Uik.Text>Click to copy text</Uik.Text>
 
@@ -16,5 +17,13 @@ function Example () {
     </>
   )
 }
+
+const code = `<>
+  <Uik.CopyButton
+    value="Copied text"
+    notification="Copied text to clipboard"
+    tooltip="Copy text to clipboard"
+  />
+</>`
 
 export default Example

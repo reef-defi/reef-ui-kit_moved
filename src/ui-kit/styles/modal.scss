@@ -41,9 +41,10 @@
       box-shadow: 0 3px 30px 0 rgba(0, 0, 0, 0.07);
       pointer-events: all;
       max-width: 100%;
-      max-height: 100vh;
+      max-height: calc(100vh - 50px);
       width: 650px;
       overflow: auto;
+      overflow-x: hidden;
 
       .uik-modal__head {
         width: 100%;
@@ -58,7 +59,7 @@
           font-size: 1.188rem;
           line-height: 1.2;
           color: var(--text);
-          font-weight: 600;
+          font-weight: 500;
           width: 100%;
           padding-right: 35px;
           word-break: break-all;
@@ -153,6 +154,14 @@
     &.enter-active,
     &.exit-active {
       transition: all 0.2s;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .uik-modal__container {
+      .uik-modal__popup {
+        max-height: 100vh;
+      }
     }
   }
 }

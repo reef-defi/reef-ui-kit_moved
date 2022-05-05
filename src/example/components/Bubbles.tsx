@@ -1,14 +1,20 @@
 import Uik from "./../../ui-kit"
+import Title from "./Title"
 
 function Example () {
   return (
     <>
-      <Uik.Divider text='Bubbles'/>
+      <Title text='Bubbles' code={code}/>
+      
       <Uik.Card className='example-bubbles'>
         <Uik.Bubbles/>
       </Uik.Card>
     </>
   )
 }
+
+const code = `<>
+  <Uik.Bubbles/>
+</>`
 
 export default Example

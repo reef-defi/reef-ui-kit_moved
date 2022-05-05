@@ -1,13 +1,18 @@
 import Uik from "./../../ui-kit"
+import Title from "./Title"
 
 function Example () {
   return (
     <>
-      <Uik.Divider text='Label'/>
+      <Title text='Label' code={code}/>
         
       <Uik.Label text='Label' />
     </>
   )
 }
+
+const code = `<>
+  <Uik.Label text='Label' />
+</>`
 
 export default Example

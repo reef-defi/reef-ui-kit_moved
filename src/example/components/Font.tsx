@@ -1,9 +1,10 @@
 import Uik from "./../../ui-kit"
+import Title from "./Title"
 
 function Example () {
   return (
     <>
-      <Uik.Divider text='Font'/>
+      <Title text='Font'/>
 
       <Uik.Container vertical className='example-font'>
         <Uik.Text>Poppins</Uik.Text>

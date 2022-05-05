@@ -1,4 +1,5 @@
 import Uik from "./../../ui-kit"
+import Title from "./Title"
 
 const baseColors = [
   {
@@ -132,7 +133,7 @@ const Color = ({ variable, name, value }) => (
 function Example () {
   return (
     <>
-      <Uik.Divider text='Colors'/>
+      <Title text='Colors'/>
 
       <div className='example-colors'>
         <Uik.Label text="Base colors"/>
