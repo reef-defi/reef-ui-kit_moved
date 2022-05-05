@@ -52,7 +52,7 @@ const CopyButton = ({
     if (!tooltip) return <>{ children }</>
 
     return (
-      <Tooltip text={tooltip}>
+      <Tooltip text={tooltip} className={className || ''}>
         {children}
       </Tooltip>
     )
@@ -63,7 +63,7 @@ const CopyButton = ({
       <button
         className={`
           uik-copy-button
-          ${className || ''}
+          ${!tooltip ? (className || '') : ''}
         `}
         type="button"
         onClick={copy}

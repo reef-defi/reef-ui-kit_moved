@@ -31,6 +31,7 @@ import Radio from "./Radio"
 import AccountSelector from "./AccountSelector"
 import CopyButton from "./CopyButton"
 import QRCode from "./QRCode"
+import Code from "./Code"
 
 const examples = {
   Alert,
@@ -65,7 +66,8 @@ const examples = {
   Radio,
   AccountSelector,
   CopyButton,
-  QRCode
+  QRCode,
+  Code
 }
 
 export default examples

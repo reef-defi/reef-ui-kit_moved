@@ -21,7 +21,7 @@ function Example () {
         <Uik.Button text='Hover to show right tooltip'/>
       </Uik.Tooltip>
 
-      <Uik.Tooltip text='This tooltip is show instantly' delay={0}>
+      <Uik.Tooltip text='This tooltip is shown instantly' delay={0}>
         <Uik.Button text='Hover to show tooltip without delay'/>
       </Uik.Tooltip>
     </>

@@ -22,6 +22,7 @@ import Tabs from "./Tabs"
 import Checkbox from "./Checkbox"
 import Radio from "./Radio"
 import QRCode from "./QRCode"
+import Code from "./Code"
 
 const atoms = {
   Alert,
@@ -47,7 +48,8 @@ const atoms = {
   Tabs,
   Checkbox,
   Radio,
-  QRCode
+  QRCode,
+  Code
 }
 
 export default atoms

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Space+Grotesk:wght@600&display=swap');
+
+.uik-code {
+  position: relative;
+
+  > pre {
+    margin: 0;
+    border-radius: 15px;
+    padding: 25px !important;
+    
+    &, * {
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 400;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+  }
+
+  .uik-code__copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    
+    .uik-copy-button {
+      padding: 5px;
+
+      .uik-icon {
+        width: 19px;
+      }
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}

@@ -45,7 +45,8 @@ const content = [
       "Divider",
       "Celebrate",
       "Loading",
-      "QR Code"
+      "QR Code",
+      "Code"
     ]
   },
   {
