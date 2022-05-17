@@ -5,12 +5,12 @@
   "files": [
     "dist"
   ],
-  "main": "./index.umd.js",
-  "module": "./index.es.js",
+  "main": "./dist/main.umd.js",
+  "module": "./main.js",
   "exports": {
     ".": {
-      "import": "./index.es.js",
-      "require": "./index.umd.js"
+      "import": "./main.js",
+      "require": "./dist/main.umd.js"
     }
   },
   "scripts": {
@@ -28,16 +28,16 @@
     "@types/react": "^18.0.5",
     "@types/react-dom": "^18.0.1",
     "qrcode.react": "^3.0.1",
-    "react-syntax-highlighter": "^15.5.0",
-    "react-transition-group": "^4.4.2",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "react-transition-group": "^4.4.2"
   },
   "devDependencies": {
-    "sass": "^1.49.9",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@vitejs/plugin-react": "^1.3.0",
+    "sass": "^1.49.9",
     "typescript": "^4.6.3",
     "vite": "^2.9.9"
   }

@@ -83,11 +83,11 @@ npm run dev
 
 2. Open `package.json` in **ui-kit** folder
 
-3. Replace `./index.es.js` with `./src/main.tsx`
+3. Replace `./main.js` with `./src/main.tsx`
 ```json
 "exports": {
   ".": {
-    "import": "./src/main.tsx" // "./index.es.js"
+    "import": "./src/main.tsx" // "./main.js"
   }
 }
 ```
