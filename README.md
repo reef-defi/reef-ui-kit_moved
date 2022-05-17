@@ -56,6 +56,7 @@ npm link @reef-defi/ui-kit
 # Development
 
 ## Production version of UI Kit (Recommended)
+
 1. Complete [UI Kit Library setup](#uik-setup) and [Example setup](#example-setup).
 
 2. Navigate to **ui-kit** folder
@@ -79,6 +80,7 @@ npm run dev
 ```
 
 ## Developemnt version of UI Kit (Faster)
+
 1. Complete [UI Kit Library setup](#uik-setup) and [Example setup](#example-setup).
 
 2. Open `package.json` in **ui-kit** folder
@@ -101,6 +103,9 @@ cd example
 ```
 npm run dev
 ```
+
+## Dependencies
+UI Kit has to be re-installed after every dependency change by running `npm link @reef-defi/ui-kit`.
 
 # Use library in other projects
 
