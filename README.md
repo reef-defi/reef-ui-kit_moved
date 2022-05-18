@@ -15,12 +15,12 @@ cd ui-kit
 
 2. Install UI Kit dependencies
 ```
-npm i
+yarn install
 ```
 
 3. Build a production version of UI Kit
 ```
-npm run build
+yarn build
 ```
 Compiles and minifies a production version of UI Kit into `dist`.
 
@@ -35,7 +35,7 @@ cd ui-kit
 
 3. Create UI Kit dependency link
 ```
-npm link
+yarn link
 ```
 
 4. Navigate to **example** folder
@@ -45,12 +45,12 @@ cd example
 
 5. Install Example dependencies
 ```
-npm i
+yarn install
 ```
 
 6. Install UI Kit dependency in Example
 ```
-npm link @reef-defi/ui-kit
+yarn link @reef-defi/ui-kit
 ```
 
 # Development
@@ -66,7 +66,7 @@ cd ui-kit
 
 3. Build and watch for changes
 ```
-npm run watch
+yarn watch
 ```
 
 4. Open a new command line and navigate to **example** folder
@@ -76,7 +76,7 @@ cd example
 
 5. Serve Example with hot reload
 ```
-npm run dev
+yarn dev
 ```
 
 ## Developemnt version of UI Kit (Faster)
@@ -101,11 +101,11 @@ cd example
 
 4. Serve Example with hot reload
 ```
-npm run dev
+yarn dev
 ```
 
 ## Dependencies
-UI Kit has to be re-installed after every dependency change by running `npm link @reef-defi/ui-kit`.
+UI Kit has to be re-installed after every dependency change by running `yarn link @reef-defi/ui-kit`.
 
 # Use library in other projects
 
