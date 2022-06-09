@@ -23,6 +23,14 @@ import Checkbox from "./Checkbox"
 import Radio from "./Radio"
 import QRCode from "./QRCode"
 import Code from "./Code"
+import Table from "./Table/Table"
+import THead from "./Table/THead"
+import TBody from "./Table/TBody"
+import Tr from "./Table/Tr"
+import Th from "./Table/Th"
+import Td from "./Table/Td"
+import Paginate from "./Table/Paginate"
+import Tag from "./Tag"
 
 const atoms = {
   Alert,
@@ -49,7 +57,15 @@ const atoms = {
   Checkbox,
   Radio,
   QRCode,
-  Code
+  Code,
+  Table,
+  THead,
+  TBody,
+  Tr,
+  Th,
+  Td,
+  Tag,
+  Paginate
 }
 
 export default atoms

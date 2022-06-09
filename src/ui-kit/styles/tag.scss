@@ -1,0 +1,50 @@
+.uik-tag {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.813rem;
+  line-height: 1.35;
+  font-weight: 500;
+  border-radius: 99px;
+  padding: 0.25rem 0.625rem;
+  color: hsl(
+    var(--gray--h),
+    var(--gray--s),
+    calc(var(--gray--l) - 10%)
+  );
+  background-color: hsla(
+    var(--gray--h),
+    var(--gray--s),
+    var(--gray--l),
+    0.25
+  );
+
+  $colors: (
+    'red',
+    'orange',
+    'yellow',
+    'lime',
+    'green',
+    'cyan',
+    'blue',
+    'purple',
+    'pink'
+  );
+
+  @each $color in $colors {
+    &--#{"" + $color} {
+      color: hsl(
+        var(--#{"" + $color}--h),
+        var(--#{"" + $color}--s),
+        calc(var(--#{"" + $color}--l) - 10%)
+      );
+      background: hsla(
+        var(--#{"" + $color}--h),
+        var(--#{"" + $color}--s),
+        var(--#{"" + $color}--l),
+        0.25
+      );
+    }
+  }
+}

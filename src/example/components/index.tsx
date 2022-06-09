@@ -32,6 +32,8 @@ import AccountSelector from "./AccountSelector"
 import CopyButton from "./CopyButton"
 import QRCode from "./QRCode"
 import Code from "./Code"
+import Table from "./Table"
+import Tag from "./Tag"
 
 const examples = {
   Alert,
@@ -67,7 +69,9 @@ const examples = {
   AccountSelector,
   CopyButton,
   QRCode,
-  Code
+  Code,
+  Table,
+  Tag
 }
 
 export default examples
