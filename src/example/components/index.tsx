@@ -35,6 +35,7 @@ import Code from "./Code"
 import Table from "./Table"
 import Tag from "./Tag"
 import Trend from "./Trend"
+import ReefAmount from "./ReefAmount"
 
 const examples = {
   Alert,
@@ -73,7 +74,8 @@ const examples = {
   Code,
   Table,
   Tag,
-  Trend
+  Trend,
+  ReefAmount
 }
 
 export default examples

@@ -28,6 +28,7 @@ const Example = () => (
         <Demo.Radio/>
         <Demo.Tag/>
         <Demo.Trend/>
+        <Demo.ReefAmount/>
         <Demo.Table/>
         <Demo.Avatar/>
         <Demo.Container/>

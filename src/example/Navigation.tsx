@@ -43,6 +43,7 @@ const content = [
       "Radio",
       "Tag",
       "Trend",
+      "Reef Amount",
       "Avatar",
       "Container",
       "Divider",

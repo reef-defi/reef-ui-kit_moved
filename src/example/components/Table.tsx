@@ -90,13 +90,15 @@ function Example () {
                   {
                     !!item.trend &&
                     <Uik.Trend
-                      text={`${item.trend}%`}
+                      text={item.trend + "%"}
                       type={item.trend >= 0 ? 'good' : 'bad'}
                       direction={item.trend >= 0 ? 'up' : 'down'}
                     />
                   }
                 </Uik.Td>
-                <Uik.Td align="right">{ item.amount.toFixed(2) }</Uik.Td>
+                <Uik.Td align="right">
+                  <Uik.ReefAmount value={ item.amount.toFixed(2) }/> 
+                </Uik.Td>
               </Uik.Tr>
             ))
           }
@@ -111,30 +113,35 @@ const code = `const data = [
     id: 1,
     name: "Example 1",
     status: "OK",
+    trend: -25,
     amount: 1000
   },
   {
     id: 2,
     name: "Example 2",
     status: "OK",
+    trend: 15,
     amount: 2500
   },
   {
     id: 3,
     name: "Example 3",
-    status: "",
+    status: null,
+    trend: 0,
     amount: 0
   },
   {
     id: 4,
     name: "Example 4",
     status: "Error",
+    trend: -50,
     amount: 1000
   },
   {
     id: 5,
     name: "Example 5",
     status: "Error",
+    trend: 75,
     amount: 0
   }
 ]
@@ -160,6 +167,7 @@ const [page, setPage] = useState(1)
         <Uik.Th width="10">ID</Uik.Th>
         <Uik.Th>Name</Uik.Th>
         <Uik.Th align="center">Status</Uik.Th>
+        <Uik.Th align="right">Trend</Uik.Th>
         <Uik.Th align="right">Amount</Uik.Th>
       </Uik.Tr>
     </Uik.THead>
@@ -179,7 +187,19 @@ const [page, setPage] = useState(1)
                 />
               }
             </Uik.Td>
-            <Uik.Td align="right">{ item.amount.toFixed(2) }</Uik.Td>
+            <Uik.Td align="right">
+              {
+                !!item.trend &&
+                <Uik.Trend
+                  text={item.trend + "%"}
+                  type={item.trend >= 0 ? 'good' : 'bad'}
+                  direction={item.trend >= 0 ? 'up' : 'down'}
+                />
+              }
+            </Uik.Td>
+            <Uik.Td align="right">
+              <Uik.ReefAmount value={ item.amount.toFixed(2) }/> 
+            </Uik.Td>
           </Uik.Tr>
         ))
       }
