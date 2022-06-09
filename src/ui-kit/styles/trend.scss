@@ -1,0 +1,60 @@
+.uik-trend {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  .uik-trend__arrow {
+    margin-right: 0.313rem;
+    width: 0;
+    height: 0;
+    border-left: solid 0.313rem transparent !important;
+    border-right: solid 0.313rem transparent !important;
+  }
+
+  .uik-trend__content {
+    color: var(--text);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  &--up {
+    .uik-trend__arrow {
+      border-bottom: solid 0.375rem transparent;
+    }
+  }
+
+  &--down {
+    .uik-trend__arrow {
+      border-top: solid 0.375rem transparent;
+    }
+  }
+
+  &--good {
+    .uik-trend__arrow {
+      border-color: hsl(
+        var(--success--h),
+        var(--success--s),
+        calc(var(--success--l) - 5%)
+      );
+    }
+
+    .uik-trend__content {
+      color: hsl(
+        var(--success--h),
+        var(--success--s),
+        calc(var(--success--l) - 5%)
+      );
+    }
+  }
+
+  &--bad {
+    .uik-trend__arrow {
+      border-color: var(--danger);
+    }
+
+    .uik-trend__content {
+      color: var(--danger);
+    }
+  }
+}

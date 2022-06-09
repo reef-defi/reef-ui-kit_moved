@@ -27,6 +27,7 @@ const Example = () => (
         <Demo.Checkbox/>
         <Demo.Radio/>
         <Demo.Tag/>
+        <Demo.Trend/>
         <Demo.Table/>
         <Demo.Avatar/>
         <Demo.Container/>

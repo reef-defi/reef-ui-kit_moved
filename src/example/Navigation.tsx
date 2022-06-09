@@ -42,6 +42,7 @@ const content = [
       "Table",
       "Radio",
       "Tag",
+      "Trend",
       "Avatar",
       "Container",
       "Divider",

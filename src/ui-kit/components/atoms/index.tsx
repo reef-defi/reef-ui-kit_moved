@@ -31,6 +31,7 @@ import Th from "./Table/Th"
 import Td from "./Table/Td"
 import Paginate from "./Table/Paginate"
 import Tag from "./Tag"
+import Trend from "./Trend"
 
 const atoms = {
   Alert,
@@ -65,7 +66,8 @@ const atoms = {
   Th,
   Td,
   Tag,
-  Paginate
+  Paginate,
+  Trend
 }
 
 export default atoms

@@ -34,6 +34,7 @@ import QRCode from "./QRCode"
 import Code from "./Code"
 import Table from "./Table"
 import Tag from "./Tag"
+import Trend from "./Trend"
 
 const examples = {
   Alert,
@@ -71,7 +72,8 @@ const examples = {
   QRCode,
   Code,
   Table,
-  Tag
+  Tag,
+  Trend
 }
 
 export default examples
