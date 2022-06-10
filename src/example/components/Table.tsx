@@ -97,7 +97,7 @@ function Example () {
                   }
                 </Uik.Td>
                 <Uik.Td align="right">
-                  <Uik.ReefAmount value={ item.amount.toFixed(2) }/> 
+                  <Uik.ReefAmount value={ item.amount }/> 
                 </Uik.Td>
               </Uik.Tr>
             ))
@@ -198,7 +198,7 @@ const [page, setPage] = useState(1)
               }
             </Uik.Td>
             <Uik.Td align="right">
-              <Uik.ReefAmount value={ item.amount.toFixed(2) }/> 
+              <Uik.ReefAmount value={ item.amount }/> 
             </Uik.Td>
           </Uik.Tr>
         ))

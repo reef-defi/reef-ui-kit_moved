@@ -6,13 +6,13 @@ function Example () {
     <>
       <Title text='Reef Amount' code={code}/>
         
-      <Uik.ReefAmount value='1,000,000.00' />
+      <Uik.ReefAmount value={1000000} />
     </>
   )
 }
 
 const code = `<>
-  <Uik.ReefAmount value='100,000.00' />
+  <Uik.ReefAmount value={1000000} />
 </>`
 
 export default Example

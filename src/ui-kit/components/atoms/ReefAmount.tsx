@@ -1,4 +1,5 @@
 import ReefIcon from "./../assets/ReefIcon"
+import formatAmount from "./../../utils/formatAmount"
 
 export interface Props {
   value?: string | number,
@@ -10,16 +11,18 @@ const Amount = ({
   value,
   className,
   children
-}: Props): JSX.Element => (
-  <div
-    className={`
-      uik-reef-amount
-      ${className || ''}
-    `}
-  >
-    <ReefIcon/>
-    <span className="uik-reef-amount__value">{children}{value}</span>
-  </div>
-);
+}: Props): JSX.Element => {
+  return (
+    <div
+      className={`
+        uik-reef-amount
+        ${className || ''}
+      `}
+    >
+      <ReefIcon/>
+      <span className="uik-reef-amount__value">{children}{formatAmount(value)}</span>
+    </div>
+  )
+}
 
 export default Amount
