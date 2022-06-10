@@ -19,7 +19,10 @@ const Amount = ({
         ${className || ''}
       `}
     >
-      <ReefIcon/>
+      {
+        (!!value || !!children) &&
+        <ReefIcon/>
+      }
       <span className="uik-reef-amount__value">{children}{formatAmount(value)}</span>
     </div>
   )
