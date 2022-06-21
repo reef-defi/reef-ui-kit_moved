@@ -1,4 +1,4 @@
-import Container from "../utils/Container"
+import Container from "../helpers/Container"
 import Celebrate, { Type } from "../components/atoms/Celebrate"
 
 const container = new Container("uik-celebrate-container")

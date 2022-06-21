@@ -1,11 +1,11 @@
 import formatAddress from "./formatAddress"
 import formatAmount from "./formatAmount"
-import Container from "./Container"
+import slug from "./slug"
 
 const utils = {
   formatAddress,
   formatAmount,
-  Container
+  slug
 }
 
 export default utils

@@ -1,5 +1,5 @@
 import Notifications, { Notification } from "../components/molecules/Notifications"
-import Container from "../utils/Container"
+import Container from "../helpers/Container"
 
 export interface NewNotification {
   message: string,
