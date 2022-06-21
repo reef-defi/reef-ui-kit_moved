@@ -31,7 +31,7 @@
   @include color('pink', #e16ab8);
   @include color('gray', #98a4b3);
 
-  --font-family: 'Poppins', sans-serif;
+  --font: 'Poppins', sans-serif;
 
   --gradient: linear-gradient(to right, var(--primary), var(--secondary));
   
