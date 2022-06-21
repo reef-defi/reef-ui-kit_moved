@@ -30,7 +30,7 @@ const Bubbles = ({
               className="uik-bubbles__bubble"
               style={{
                 animationDelay: `${i * (delay || 0.5) - 0.1}s`,
-                left: `${random(10, 90)}%`,
+                left: `${random(0, 100)}%`,
                 transform: `scale(${random(0.75, 1.25)})`,
                 opacity: random(0.5, 1)
               }}
