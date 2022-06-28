@@ -157,7 +157,7 @@ const Slider = ({
                     />
                   }
                   {
-                    !!helper.text && (!tooltip || helper.position !== getValue()) &&
+                    !!helper.text &&
                     <div
                       className="uik-slider__helper-text"
                       style={{

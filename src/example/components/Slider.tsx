@@ -17,7 +17,7 @@ function Example () {
           helpers={[
             { position: 0, text: "0%" },
             { position: 25 },
-            { position: 50, text: "50" },
+            { position: 50, text: "50%" },
             { position: 75, },
             { position: 100, text: "100%" },
           ]}
