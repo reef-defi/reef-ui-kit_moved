@@ -41,6 +41,7 @@ const content = [
       "Checkbox",
       "Table",
       "Radio",
+      "Slider",
       "Tag",
       "Trend",
       "Reef Amount",

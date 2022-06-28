@@ -33,6 +33,7 @@ import Paginate from "./Table/Paginate"
 import Tag from "./Tag"
 import Trend from "./Trend"
 import ReefAmount from "./ReefAmount"
+import Slider from "./Slider"
 
 const atoms = {
   Alert,
@@ -69,7 +70,8 @@ const atoms = {
   Tag,
   Paginate,
   Trend,
-  ReefAmount
+  ReefAmount,
+  Slider
 }
 
 export default atoms
