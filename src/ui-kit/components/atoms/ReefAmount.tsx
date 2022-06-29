@@ -1,5 +1,5 @@
 import ReefIcon from "./../assets/ReefIcon"
-import formatAmount from "./../../utils/formatAmount"
+import { formatAmount } from "./../../utils/format"
 
 export interface Props {
   value?: string | number,

@@ -1,5 +1,5 @@
 import Identicon from "@polkadot/react-identicon";
-import formatAddress from "../../../utils/formatAddress";
+import { formatAddress  } from "../../../utils/format";
 import CopyButton from "../CopyButton"
 import Button from "../../atoms/Button"
 import QRCode from "../../atoms/QRCode"

@@ -1,10 +1,14 @@
-import formatAddress from "./formatAddress"
-import formatAmount from "./formatAmount"
+import {
+  formatAddress,
+  formatAmount,
+  formatHumanAmount
+} from "./format"
 import slug from "./slug"
 
 const utils = {
   formatAddress,
   formatAmount,
+  formatHumanAmount,
   slug
 }
 
