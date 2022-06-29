@@ -13,13 +13,14 @@ export const formatAmount = (amount: number | string): string => {
 
 export const formatHumanAmount = (amount: number | string, decPlaces: number = 2): string => {
   if (typeof amount === "string") {
+    amount = amount.replaceAll(",", "")
     amount = parseFloat(amount)
   }
 
   if (isNaN(amount)) return String(amount)
 
   decPlaces = Math.pow(10, decPlaces)
-  const abbrev = [ "k", "M", "B", "T" ]
+  const abbrev = ["k", "M", "B"]
 
   for (let i = abbrev.length - 1; i >= 0; i--) {
     const size = Math.pow(10, (i + 1) * 3)
@@ -39,3 +40,6 @@ export const formatHumanAmount = (amount: number | string, decPlaces: number = 2
 
   return String(amount)
 }
+
+
+
