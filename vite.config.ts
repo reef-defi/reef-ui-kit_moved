@@ -36,7 +36,8 @@ export default defineConfig(({ command }) => {
             'react-transition-group',
             'react',
             'react-dom',
-            'react-router-dom'
+            'react-router-dom',
+            'bignumber.js'
           ]
         }
       }
