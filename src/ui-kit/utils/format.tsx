@@ -10,7 +10,15 @@ export const formatAddress = (address:string = "", offset:number = 5): string =>
 
 export const formatAmount = (amount: number | string): string => {
   if (!amount) return ""
-  return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+  const parts = amount.toString().split(".")
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  
+  const output = parts.join(".")
+
+  return output
+}
+
 }
 
 export const formatHumanAmount = (amount: number | string, decPlaces: number = 2): string => {
