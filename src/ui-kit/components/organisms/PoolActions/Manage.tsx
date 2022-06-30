@@ -5,8 +5,8 @@ import Slider from '../../atoms/Slider'
 import ManageToken from "./ManageToken"
 import { formatAmount, maxDecimals } from "../../../utils/format"
 import { BigNumber } from "bignumber.js"
+import { faArrowUpFromBracket, faCoins } from '@fortawesome/free-solid-svg-icons';
 
-type MaxKey = "available" | "provided"
 type TokenKey = "firstToken" | "secondToken"
 
 /**
@@ -32,15 +32,11 @@ const setInputValue = (ref, value: number) => {
 const Manage = ({
   onInput,
   data,
-  buttonText,
-  buttonIcon,
-  maxKey
+  action
 }: {
   onInput?: CustomFunction,
   data: Data,
-  buttonText?: string,
-  buttonIcon?: any,
-  maxKey: MaxKey
+  action: "provide" | "withdraw"
 }): JSX.Element => {
   const [values, setValues] = useState({
     percentage: 0,
@@ -50,6 +46,28 @@ const Manage = ({
 
   const firstTokenInput = useRef(null)
   const secondTokenInput = useRef(null)
+
+  const actionMap = {
+    provide: {
+      maxKey: "available",
+      button: {
+        text: "Provide",
+        icon: faCoins
+      }
+    },
+    withdraw: {
+      maxKey: "provided",
+      button: {
+        text: "Withdraw",
+        icon: faArrowUpFromBracket
+      }
+    }
+  }
+
+  const maxKey = actionMap[action].maxKey
+  const buttonText = actionMap[action].button.text
+  const buttonIcon = actionMap[action].button.icon
+  const fees = data.fees[action]
 
   const setValue = ({
     percentage,
@@ -139,7 +157,7 @@ const Manage = ({
         />
       </div>
 
-      <div className="uik-pool-actions-manage__fee">Fee: {'0.02 REEF'}</div>
+      <div className="uik-pool-actions-manage__fee">Fee: {fees.amount} <span>{fees.token.name}</span></div>
 
       <div className="uik-pool-actions-manage__slider">
         <Slider

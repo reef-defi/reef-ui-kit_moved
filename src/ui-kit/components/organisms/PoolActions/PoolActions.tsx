@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Tabs from "../../atoms/Tabs"
 import Icon from '../../atoms/Icon'
-import { faCog, faArrowUpFromBracket, faCoins } from '@fortawesome/free-solid-svg-icons';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
 import Manage from "./Manage"
 
 export interface Token {
@@ -106,9 +106,7 @@ const PoolActions = ({
           <Manage
             data={data}
             onInput={onProvideInput}
-            buttonText="Provide"
-            buttonIcon={faCoins}
-            maxKey="available"
+            action="provide"
           />
         }
 
@@ -117,9 +115,7 @@ const PoolActions = ({
           <Manage
             data={data}
             onInput={onWithdrawInput}
-            buttonText="Withdraw"
-            buttonIcon={faArrowUpFromBracket}
-            maxKey="provided"
+            action="withdraw"
           />
         }
     </div>
