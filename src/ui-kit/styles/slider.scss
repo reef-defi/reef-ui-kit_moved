@@ -69,13 +69,13 @@
           var(--border-color--s),
           calc(var(--border-color--l) - 5%)
         );
+        border: none;
         border-radius: 50%;
         transition: box-shadow 0.15s, background-color 0.15s;
         
         .uik-slider__helper-text {
           position: absolute;
           top: 16px;
-          pointer-events: none;
           user-select: none;
           font-size: 12px;
           font-weight: 600;
@@ -105,6 +105,7 @@
         }
 
         &:hover {
+          cursor: pointer;
           background-color: #9129ab;
           box-shadow: 0 0 0 4px rgba(#9129ab, 0.25);
         }

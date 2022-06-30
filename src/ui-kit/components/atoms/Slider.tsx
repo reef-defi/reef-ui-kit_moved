@@ -110,6 +110,10 @@ const Slider = ({
     onChange(position)
   }
 
+  const setPosition = (position: number) => {
+    onChange(position)
+  }
+
   return (
     <div
       ref={sliderEl}
@@ -137,8 +141,9 @@ const Slider = ({
           <div className="uik-slider__helpers">
             {
               helpers.map(helper => (
-                <div
+                <button
                   key={`helper-${helper.position}`}
+                  type="button"
                   className={`
                     uik-slider__helper
                     ${helper.position <= getValue() ? 'uik-slider__helper--passed' : ''}
@@ -146,6 +151,11 @@ const Slider = ({
                   style={{
                     "--position": `${helper.position}`
                   } as React.CSSProperties }
+                  onMouseDown={event => event.stopPropagation()}
+                  onClick={event => {
+                    event.stopPropagation()
+                    setPosition(helper.position)
+                  }}
                 >
                   {
                     helper.position <= getValue() &&
@@ -169,7 +179,7 @@ const Slider = ({
                       } as React.CSSProperties }
                     >{ helper.text }</div>
                   }
-                </div>
+                </button>
               ))
             }
           </div>
