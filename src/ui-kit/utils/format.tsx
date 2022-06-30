@@ -19,6 +19,16 @@ export const formatAmount = (amount: number | string): string => {
   return output
 }
 
+export const maxDecimals = (
+  num: number | string,
+  decPlaces: number = 2,
+  method: "round" | "floor" | "ceil" = "round"
+): number => {
+  if (typeof num !== "number") num = new BigNumber(num).toNumber()
+
+  const decFactor = 10 ** decPlaces
+
+  return Math[method]((num + Number.EPSILON) * decFactor) / decFactor
 }
 
 export const formatHumanAmount = (amount: number | string, decPlaces: number = 2): string => {

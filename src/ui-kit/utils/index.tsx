@@ -1,7 +1,8 @@
 import {
   formatAddress,
   formatAmount,
-  formatHumanAmount
+  formatHumanAmount,
+  maxDecimals
 } from "./format"
 import slug from "./slug"
 
@@ -9,6 +10,7 @@ const utils = {
   formatAddress,
   formatAmount,
   formatHumanAmount,
+  maxDecimals,
   slug
 }
 
