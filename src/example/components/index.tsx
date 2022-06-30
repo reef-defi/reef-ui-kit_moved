@@ -37,6 +37,7 @@ import Tag from "./Tag"
 import Trend from "./Trend"
 import ReefAmount from "./ReefAmount"
 import Slider from "./Slider"
+import PoolActions from "./PoolActions"
 
 const examples = {
   Alert,
@@ -77,7 +78,8 @@ const examples = {
   Tag,
   Trend,
   ReefAmount,
-  Slider
+  Slider,
+  PoolActions
 }
 
 export default examples

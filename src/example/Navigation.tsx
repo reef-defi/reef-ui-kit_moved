@@ -64,7 +64,8 @@ const content = [
     title: 'Organisms',
     links: [
       "Account Selector",
-      "Copy Button"
+      "Copy Button",
+      "Pool Actions"
     ]
   },
   {

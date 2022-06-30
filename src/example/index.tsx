@@ -41,6 +41,7 @@ const Example = () => (
         <Demo.Notifications/>
         <Demo.AccountSelector/>
         <Demo.CopyButton/>
+        <Demo.PoolActions/>
         <Demo.ReefLogo/>
         <Demo.ReefSign/>
         <Demo.ReefIcon/>
