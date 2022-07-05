@@ -67,7 +67,6 @@ const Manage = ({
   const maxKey = actionMap[action].maxKey
   const buttonText = actionMap[action].button.text
   const buttonIcon = actionMap[action].button.icon
-  const fees = data.fees[action]
 
   const setValue = ({
     percentage,
@@ -141,7 +140,10 @@ const Manage = ({
       <div className="uik-pool-actions-manage__tokens">
         <ManageToken
           name={data.firstToken.name}
+          symbol={data.firstToken.symbol}
           image={data.firstToken.image}
+          price={data.firstToken.price}
+          value={values.firstToken}
           max={data.firstToken[maxKey]}
           onInput={e => handleInput('firstToken', e)}
           onBlur={e => setInputValue(firstTokenInput, values.firstToken)}
@@ -149,15 +151,16 @@ const Manage = ({
         />
         <ManageToken
           name={data.secondToken.name}
+          symbol={data.secondToken.symbol}
           image={data.secondToken.image}
+          price={data.secondToken.price}
+          value={values.secondToken}
           max={data.secondToken[maxKey]}
           onInput={e => handleInput('secondToken', e)}
           onBlur={e => setInputValue(secondTokenInput, values.secondToken)}
           inputRef={secondTokenInput}
         />
       </div>
-
-      <div className="uik-pool-actions-manage__fee">Fee: {fees.amount} <span>{fees.token.name}</span></div>
 
       <div className="uik-pool-actions-manage__slider">
         <Slider

@@ -206,10 +206,12 @@
       }
 
       &:hover {
+        cursor: grab;
         box-shadow: 0 0 0 5px rgba(#742cb2, 0.25);
       }
 
       &:active {
+        cursor: grabbing;
         box-shadow: 0 0 0 6px rgba(#742cb2, 0.35);
       }
     }
@@ -217,6 +219,8 @@
 
   &--dragging {
     .uik-slider__slider {
+      cursor: grabbing;
+
       .uik-slider__line {
         .uik-slider__line-indicator {
           transition: none;
@@ -243,6 +247,7 @@
 
       .uik-slider__indicator {
         &, &:hover, &:active {
+          cursor: grabbing;
           transition: box-shadow 0.15s;
           box-shadow: 0 0 0 6px rgba(#742cb2, 0.25);
         }

@@ -1,42 +1,29 @@
 import { useState } from "react"
 import Tabs from "../../atoms/Tabs"
-import Icon from '../../atoms/Icon'
-import { faCog } from '@fortawesome/free-solid-svg-icons';
 import Manage from "./Manage"
 
 export interface Token {
   name: string,
+  symbol: string,
   image?: string,
 }
 
 export interface PoolToken extends Token {
   available: number,
   provided: number,
-  ratio: number
-}
-
-export interface Fee {
-  amount: number,
-  token: Token
-}
-
-export interface Fees {
-  provide: Fee,
-  withdraw: Fee
+  ratio: number,
+  price: number
 }
 
 export interface Data {
   firstToken: PoolToken,
-  secondToken: PoolToken,
-  fees: Fees
+  secondToken: PoolToken
 }
 
 export type CustomFunction = (...args: any[]) => any
 
 export interface Events {
   onTabChange?: CustomFunction,
-  onSettingsOpen?: CustomFunction,
-  onSettingsClose?: CustomFunction,
   onProvideInput?: CustomFunction,
   onWithdrawInput?: CustomFunction
 }
@@ -49,8 +36,6 @@ export interface Props extends Events {
 
 const PoolActions = ({
   onTabChange,
-  onSettingsOpen,
-  onSettingsClose,
   onProvideInput,
   onWithdrawInput,
   data,
@@ -58,7 +43,6 @@ const PoolActions = ({
   className
 }: Props): JSX.Element => {
   const [ currentTab, setTab ] = useState(tab)
-  const [ areSettingsOpen, setSettingsOpen ] = useState(false)
 
   const selectTab = (value: "Provide" | "Withdraw" | "Trade") => {
     if (onTabChange) {
@@ -69,13 +53,6 @@ const PoolActions = ({
     }
 
     setTab(value)
-  }
-
-  const toggleSettingsOpen = (value: boolean) => {
-    if (value && onSettingsOpen) onSettingsOpen()
-    if (!value && onSettingsClose) onSettingsClose()
-    
-    setSettingsOpen(value)
   }
 
   return (
@@ -91,14 +68,6 @@ const PoolActions = ({
           onChange={value => selectTab(value)}
           options={["Provide", "Withdraw", "Trade"]}
         />
-
-        <button
-          type="button"
-          className="uik-pool-actions__settings-btn"
-          onClick={() => toggleSettingsOpen(true)}
-        >
-          <Icon icon={faCog}/>
-        </button>
       </div>
 
       {
