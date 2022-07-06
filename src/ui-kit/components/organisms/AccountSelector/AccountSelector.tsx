@@ -16,7 +16,6 @@ export interface Props {
   isOpen: boolean,
   accounts?: Account[],
   selectedAccount?: Account | null | undefined,
-  loading?: boolean,
   onClose?: (...args: any[]) => any,
   onSelect?: (...args: any[]) => any,
   className?: string
@@ -26,7 +25,6 @@ const AccountSelector = ({
   isOpen,
   accounts,
   selectedAccount,
-  // loading,
   onClose,
   onSelect,
   className
