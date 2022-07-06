@@ -2,6 +2,7 @@ import { useState, useMemo } from "react"
 import Tabs from "../../atoms/Tabs"
 import Provide from "./Provide"
 import Withdraw from "./Withdraw"
+import Trade from "./Trade"
 
 export interface Token {
   name: string,
@@ -100,6 +101,15 @@ const PoolActions = ({
             data={data}
             onInput={onWithdrawInput}
             onConfirm={onWithdraw}
+          />
+        }
+
+{
+          currentTab === "Trade" &&
+          <Trade
+            data={data}
+            onInput={onTradeInput}
+            onConfirm={onTrade}
           />
         }
     </div>
