@@ -1,8 +1,11 @@
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { Token, CustomFunction } from "./PoolActions"
-import { formatAmount } from "../../../utils/format"
+import { formatAmount, maxDecimals } from "../../../utils/format"
+import BigNumber from "bignumber.js"
 
 export interface Props extends Token {
+  value?: number,
+  price?: number,
   max?: number,
   inputRef?: any,
   onInput?: CustomFunction,
@@ -12,6 +15,8 @@ export interface Props extends Token {
 const TokenComponent = ({
   image,
   symbol,
+  value,
+  price,
   max,
   onInput,
   onBlur,
@@ -25,6 +30,10 @@ const TokenComponent = ({
     setFocused(false)
     if (onBlur) onBlur(e)
   }
+
+  const getPrice = useMemo((): number => {
+    return maxDecimals(new BigNumber(value || 0).times(price || 0).toNumber(), 2)
+  }, [value, price])
 
   return (
     <div
@@ -44,11 +53,24 @@ const TokenComponent = ({
   
         <div className="uik-pool-actions-token__info">
           <div className="uik-pool-actions-token__symbol">{ symbol }</div>
-          <div className="uik-pool-actions-token__amount">Available { !!max ? formatAmount(max) : '' }</div>
+          {
+            !!max &&
+            <div className="uik-pool-actions-token__amount">Available { !!max ? formatAmount(max) : '' }</div>
+          }
         </div>
       </div>
   
       <div className="uik-pool-actions-token__value">
+        {
+          !!price &&
+          <div
+            className={`
+              uik-pool-actions-token__price
+              ${!getPrice ? 'uik-pool-actions-token__price--empty': ''}
+            `}
+          >${ getPrice ? formatAmount(getPrice) : '0.0' }</div>
+        }
+
         <input
           ref={inputRef}
           onInput={onInput}

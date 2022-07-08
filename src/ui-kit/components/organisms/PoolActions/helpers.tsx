@@ -1,5 +1,6 @@
 import { formatAmount } from "../../../utils/format"
 import { BigNumber } from "bignumber.js"
+import { TokenKey } from "./PoolActions"
 
 /**
  * Sets value in input element
@@ -19,4 +20,8 @@ export const setInputValue = (ref, value: number) => {
   let newValue = formatAmount(value).replaceAll(",", " ")
 
   ref.current.value = newValue
+}
+
+export const getOtherTokenKey = (key: TokenKey): TokenKey => {
+  return key === "firstToken" ? "secondToken" : "firstToken"
 }

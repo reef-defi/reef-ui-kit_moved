@@ -5,17 +5,19 @@ import Slider from '../../atoms/Slider'
 import Token from "./Token"
 import { formatAmount, maxDecimals } from "../../../utils/format"
 import { BigNumber } from "bignumber.js"
-import { faCoins } from '@fortawesome/free-solid-svg-icons';
-import { setInputValue } from "./helpers"
+import { faCoins, faArrowUpFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { setInputValue, getOtherTokenKey } from "./helpers"
 
 export interface Props {
   data: Data,
+  action: "provide" | "withdraw",
   onInput?: CustomFunction,
   onConfirm?: CustomFunction
 }
 
 const Provide = ({
   data,
+  action,
   onInput,
   onConfirm
 }: Props): JSX.Element => {
@@ -28,13 +30,34 @@ const Provide = ({
   const firstTokenInput = useRef(null)
   const secondTokenInput = useRef(null)
 
+  const actionMap = {
+    provide: {
+      maxKey: "available",
+      button: {
+        text: "Provide",
+        icon: faCoins
+      }
+    },
+    withdraw: {
+      maxKey: "providing",
+      button: {
+        text: "Withdraw",
+        icon: faArrowUpFromBracket
+      }
+    }
+  }
+
+  const maxKey = actionMap[action].maxKey
+  const buttonText = actionMap[action].button.text
+  const buttonIcon = actionMap[action].button.icon
+
   const maxValues = useMemo(() => {
     const output = {
-      firstToken: data.firstToken.available,
-      secondToken: data.secondToken.available
+      firstToken: data.firstToken[maxKey],
+      secondToken: data.secondToken[maxKey]
     }
     
-    const getFullValue = (token: TokenKey) => new BigNumber(data[token].available).times(data[token].price).toNumber()
+    const getFullValue = (token: TokenKey) => new BigNumber(data[token][maxKey]).times(data[token].price).toNumber()
     const firstTokenValue = getFullValue("firstToken")
     const secondTokenValue = getFullValue("secondToken")
 
@@ -47,9 +70,9 @@ const Provide = ({
     
     return output
   }, [
-    data.firstToken.available,
+    data.firstToken[maxKey],
     data.firstToken.price,
-    data.secondToken.available,
+    data.secondToken[maxKey],
     data.secondToken.price
   ])
 
@@ -78,7 +101,7 @@ const Provide = ({
 
     if (value && tokenKey) {
       tokenValues[tokenKey] = value
-      const otherTokenKey = tokenKey === "firstToken" ? "secondToken" : "firstToken"
+      const otherTokenKey = getOtherTokenKey(tokenKey)
       tokenValues[otherTokenKey] = calcTokenValue(otherTokenKey)
     } else {
       tokenValues.firstToken = calcTokenValue("firstToken")
@@ -108,7 +131,8 @@ const Provide = ({
         data: data.secondToken,
         amount: value.secondToken
       },
-      percentage: value.percentage
+      percentage: value.percentage,
+      value: getTotalValue
     }
   }
 
@@ -172,7 +196,7 @@ const Provide = ({
           name={data.firstToken.name}
           symbol={data.firstToken.symbol}
           image={data.firstToken.image}
-          max={data.firstToken.available}
+          max={data.firstToken[maxKey]}
           onInput={e => handleInput('firstToken', e)}
           onBlur={e => setInputValue(firstTokenInput, values.firstToken)}
           inputRef={firstTokenInput}
@@ -181,7 +205,7 @@ const Provide = ({
           name={data.secondToken.name}
           symbol={data.secondToken.symbol}
           image={data.secondToken.image}
-          max={data.secondToken.available}
+          max={data.secondToken[maxKey]}
           onInput={e => handleInput('secondToken', e)}
           onBlur={e => setInputValue(secondTokenInput, values.secondToken)}
           inputRef={secondTokenInput}
@@ -218,8 +242,8 @@ const Provide = ({
       <Button
         className="uik-pool-actions__cta"
         fill
-        icon={faCoins}
-        text="Provide"
+        icon={buttonIcon}
+        text={buttonText}
         size="large"
         disabled={
           !values.firstToken ||

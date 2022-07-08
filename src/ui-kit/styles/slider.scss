@@ -107,12 +107,12 @@
         &:hover {
           cursor: pointer;
           background-color: #9129ab;
-          box-shadow: 0 0 0 4px rgba(#9129ab, 0.25);
+          box-shadow: 0 0 0 5px rgba(#9129ab, 0.25);
         }
   
         &:active {
           background-color: #9129ab;
-          box-shadow: 0 0 0 5px rgba(#9129ab, 0.35);
+          box-shadow: 0 0 0 6px rgba(#9129ab, 0.35);
         }
 
         &:hover, &:active {

@@ -6,13 +6,37 @@ import Token from "./Token"
 import { formatAmount, maxDecimals } from "../../../utils/format"
 import { BigNumber } from "bignumber.js"
 import { faRepeat } from '@fortawesome/free-solid-svg-icons';
-import { setInputValue } from "./helpers"
+import { setInputValue, getOtherTokenKey } from "./helpers"
+import Icon from "../../atoms/Icon"
 
 export interface Props {
   data: Data,
   onInput?: CustomFunction,
   onConfirm?: CustomFunction
 }
+
+const SummaryItem = ({
+  label,
+  value,
+  empty,
+  className
+}: {
+  label: string,
+  value?: string,
+  empty?: boolean,
+  className?: string
+}): JSX.Element => (
+  <div
+    className={`
+      uik-pool-actions__summary-item
+      ${empty ? 'uik-pool-actions__summary-item--empty': ''}
+      ${className || ''}
+    `}
+  >
+    <div className="uik-pool-actions__summary-item-label">{ label }</div>
+    <div className="uik-pool-actions__summary-item-value">{ value }</div>
+  </div>
+)
 
 const Provide = ({
   data,
@@ -25,6 +49,16 @@ const Provide = ({
     secondToken: 0
   })
 
+  const hasValue = useMemo(() => {
+    return !!values.firstToken &&
+      !!values.secondToken &&
+      !!values.percentage
+  }, [
+    values.firstToken,
+    values.secondToken,
+    values.percentage
+  ])
+
   const [fromTokenKey, setFromTokenKey] = useState<TokenKey>("firstToken")
 
   const toTokenKey = useMemo((): TokenKey => {
@@ -36,6 +70,11 @@ const Provide = ({
     data.secondToken
   ])
 
+  const switchTokens = () => { 
+    setFromTokenKey(toTokenKey)
+    setValue({ percentage: 0 })
+  }
+
   const firstTokenInput = useRef(null)
   const secondTokenInput = useRef(null)
 
@@ -43,6 +82,60 @@ const Provide = ({
     firstToken: firstTokenInput,
     secondToken: secondTokenInput
   }
+
+  const getRates = useMemo(() => {
+    const getRatio = (tokenKey: TokenKey) => {
+      const _token = data[tokenKey]
+      const otherTokenKey = getOtherTokenKey(tokenKey)
+      const token = data[otherTokenKey]
+      
+      let amount = new BigNumber(_token.price).dividedBy(token.price).toNumber()
+      amount = maxDecimals(amount, 4)
+
+      const text = `1 ${_token.symbol} = ${amount ? formatAmount(amount) : '0.0'} ${token.symbol}`
+
+      return { amount, text, _token, token }
+    }
+
+    const from = getRatio(fromTokenKey)
+    const to = getRatio(toTokenKey)
+
+    return { from, to }
+  }, [
+    fromTokenKey,
+    toTokenKey,
+    data[fromTokenKey],
+    data[toTokenKey]
+  ])
+
+  const getFee = useMemo(() => {
+    const token = data[fromTokenKey]
+
+    const percentage = hasValue ? 0.3 : 0
+
+    let amount = new BigNumber(values[fromTokenKey]).times(new BigNumber(percentage).dividedBy(100).toNumber()).toNumber()
+    amount = maxDecimals(amount, 4)
+    
+    let value = new BigNumber(amount).times(token.price).toNumber()
+    value = maxDecimals(value, 2)
+
+    const text = `$${value ? formatAmount(value) : "0.0"} (${amount ? formatAmount(amount).replaceAll(",", " ") : '0'} ${token.symbol})`
+
+    return { percentage, amount, value, token, text}
+  }, [
+    fromTokenKey,
+    hasValue,
+    values[fromTokenKey]
+  ])
+
+  const getSlippage = useMemo(() => {
+    const percentage = hasValue ? 2.5 : 0
+    const warn = percentage > 5
+    
+    return { percentage, warn }
+  }, [
+    values
+  ])
 
   const maxValues = useMemo(() => {
     const output = {
@@ -57,7 +150,9 @@ const Provide = ({
     return output
   }, [
     data.firstToken.available,
-    data.secondToken.available
+    data.secondToken.available,
+    fromTokenKey,
+    toTokenKey
   ])
 
   const setValue = ({
@@ -85,7 +180,7 @@ const Provide = ({
 
     if (value && tokenKey) {
       tokenValues[tokenKey] = value
-      const otherTokenKey = tokenKey === "firstToken" ? "secondToken" : "firstToken"
+      const otherTokenKey = getOtherTokenKey(tokenKey)
       tokenValues[otherTokenKey] = calcTokenValue(otherTokenKey)
     } else {
       tokenValues.firstToken = calcTokenValue("firstToken")
@@ -115,7 +210,10 @@ const Provide = ({
         token: data[toTokenKey],
         amount: value[toTokenKey]
       },
-      percentage: value.percentage
+      percentage: value.percentage,
+      rates: getRates,
+      fee: getFee,
+      slippage: getSlippage
     }
   }
 
@@ -167,19 +265,53 @@ const Provide = ({
           name={data[fromTokenKey].name}
           symbol={data[fromTokenKey].symbol}
           image={data[fromTokenKey].image}
+          value={values[fromTokenKey]}
+          price={data[fromTokenKey].price}
           max={data[fromTokenKey].available}
           onInput={e => handleInput(fromTokenKey, e)}
-          onBlur={e => setInputValue(tokenInputs[fromTokenKey], values[fromTokenKey])}
+          onBlur={() => setInputValue(tokenInputs[fromTokenKey], values[fromTokenKey])}
           inputRef={tokenInputs[fromTokenKey]}
         />
+
+        <div className="uik-pool-actions__token-switch">
+          <button
+            type="button"
+            className={`
+              uik-pool-actions__token-switch-btn
+              ${fromTokenKey === 'secondToken' ? 'uik-pool-actions__token-switch-btn--reversed' : ''}
+            `}
+            onClick={switchTokens}
+          >
+            <Icon icon={faRepeat}/>
+          </button>
+        </div>
+
         <Token
           name={data[toTokenKey].name}
           symbol={data[toTokenKey].symbol}
           image={data[toTokenKey].image}
-          max={data[toTokenKey].available}
           onInput={e => handleInput(toTokenKey, e)}
-          onBlur={e => setInputValue(tokenInputs[toTokenKey], values[toTokenKey])}
+          onBlur={() => setInputValue(tokenInputs[toTokenKey], values[toTokenKey])}
           inputRef={tokenInputs[toTokenKey]}
+        />
+      </div>
+
+      <div className="uik-pool-actions__summary uik-pool-actions__trade-summary">
+        <SummaryItem
+          label="Rate"
+          value={getRates.from.text}
+          empty={!hasValue}
+        />
+        <SummaryItem
+          label="Fee"
+          value={getFee.percentage ? `${getFee.percentage}%` : '0%'}
+          empty={!getFee.percentage}
+        />
+        <SummaryItem
+          label="Slippage"
+          className={getSlippage.warn ? 'uik-pool-actions__trade-slippage--warn' : ''}
+          value={`${getSlippage.percentage}%`}
+          empty={!getSlippage.percentage}
         />
       </div>
 
@@ -204,11 +336,7 @@ const Provide = ({
         icon={faRepeat}
         text="Trade"
         size="large"
-        disabled={
-          !values.firstToken ||
-          !values.secondToken ||
-          !values.percentage
-        }
+        disabled={!hasValue}
         onClick={confirm}
       />
     </>
