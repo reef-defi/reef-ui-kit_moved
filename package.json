@@ -16,7 +16,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "tsc && vite build",
+    "showcase": "tsc && vite build --mode=showcase"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.0",
