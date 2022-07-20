@@ -29,7 +29,8 @@ export interface Events {
   onTradeInput?: CustomFunction,
   onProvide?: CustomFunction,
   onWithdraw?: CustomFunction,
-  onTrade?: CustomFunction
+  onTrade?: CustomFunction,
+  onSwitchTokens?: CustomFunction
 }
 
 export interface Props extends Events {
@@ -48,6 +49,7 @@ const PoolActions = ({
   onProvide,
   onWithdraw,
   onTrade,
+  onSwitchTokens,
   data,
   tab = "Provide",
   className
@@ -117,6 +119,7 @@ const PoolActions = ({
             data={data}
             onInput={onTradeInput}
             onConfirm={onTrade}
+            onSwitchTokens={onSwitchTokens}
           />
         }
     </div>
