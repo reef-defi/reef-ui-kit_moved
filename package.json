@@ -1,9 +1,11 @@
 {
   "name": "@reef-defi/ui-kit",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.0-dev",
   "files": [
-    "dist"
+    "dist",
+    "src/",
+    "LICENSE",
+    "README.md"
   ],
   "main": "./dist/index.es.js",
   "types": "./dist/ui-kit/index.d.ts",
