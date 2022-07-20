@@ -27,3 +27,7 @@ yarn build
 ```
 yarn showcase
 ```
+
+## Versioning
+
+Push to master will trigger deploy as well as publish to npm registry. A new tag will be created with the version. See [here](https://github.com/mikeal/merge-release#workflow) for special commit messages that trigger version changes.
