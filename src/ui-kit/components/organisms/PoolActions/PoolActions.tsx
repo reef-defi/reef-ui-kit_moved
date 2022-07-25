@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react"
 import Tabs from "../../atoms/Tabs"
-import Manage from "./Manage"
+import Provide from "./Provide"
+import Withdraw from "./Withdraw"
 import Trade from "./Trade"
 
 export interface Token {
@@ -11,13 +12,13 @@ export interface Token {
 
 export interface PoolToken extends Token {
   available: number,
-  providing?: number,
   price: number
 }
 
 export interface Data {
   firstToken: PoolToken,
-  secondToken: PoolToken
+  secondToken: PoolToken,
+  providedLiquidity: number
 }
 
 export type CustomFunction = (...args: any[]) => any
@@ -68,10 +69,7 @@ const PoolActions = ({
   }
 
   const getTabs = useMemo(() => {
-    if (
-      !!data.firstToken.providing ||
-      !!data.secondToken.providing
-    ) {
+    if (!!data.providedLiquidity) {
       return ["Provide", "Withdraw", "Trade"]
     } else {
       return ["Provide", "Trade"]
@@ -95,8 +93,7 @@ const PoolActions = ({
 
       {
           currentTab === "Provide" &&
-          <Manage
-            action="provide"
+          <Provide
             data={data}
             onInput={onProvideInput}
             onConfirm={onProvide}
@@ -105,8 +102,7 @@ const PoolActions = ({
 
         {
           currentTab === "Withdraw" &&
-          <Manage
-            action="withdraw"
+          <Withdraw
             data={data}
             onInput={onWithdrawInput}
             onConfirm={onWithdraw}

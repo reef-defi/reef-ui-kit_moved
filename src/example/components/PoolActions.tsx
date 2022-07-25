@@ -7,17 +7,16 @@ const data = {
     symbol: "REEF",
     image: 'https://s2.coinmarketcap.com/static/img/coins/64x64/6951.png',
     price: 0.05,
-    available: 10000,
-    providing: 5000
+    available: 10000
   },
   secondToken: {
     name: 'Test Token',
     symbol: "TEST",
     image: '',
     price: 0.025,
-    available: 20000,
-    providing: 2500
-  }
+    available: 20000
+  },
+  providedLiquidity: 2000
 }
 
 function Example () {
