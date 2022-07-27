@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react"
+import { useState } from "react"
 import Tabs from "../../atoms/Tabs"
 import Provide from "./Provide"
 import Withdraw from "./Withdraw"
@@ -17,8 +17,7 @@ export interface PoolToken extends Token {
 
 export interface Data {
   firstToken: PoolToken,
-  secondToken: PoolToken,
-  withdrawable: boolean
+  secondToken: PoolToken
 }
 
 export type CustomFunction = (...args: any[]) => any
@@ -57,7 +56,7 @@ const PoolActions = ({
   onSwitchTokens,
   calcWithdraw,
   data,
-  tab = "Provide",
+  tab = "Trade",
   className
 }: Props): JSX.Element => {
   const [ currentTab, setTab ] = useState(tab)
@@ -73,14 +72,6 @@ const PoolActions = ({
     setTab(value)
   }
 
-  const getTabs = useMemo(() => {
-    if (!!data.withdrawable) {
-      return ["Provide", "Withdraw", "Trade"]
-    } else {
-      return ["Provide", "Trade"]
-    }
-  }, [ data ])
-
   return (
     <div
       className={`
@@ -92,7 +83,7 @@ const PoolActions = ({
         <Tabs
           value={currentTab}
           onChange={value => selectTab(value)}
-          options={getTabs}
+          options={["Trade", "Provide", "Withdraw"]}
         />
       </div>
 

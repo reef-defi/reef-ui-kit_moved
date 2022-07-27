@@ -15,8 +15,7 @@ const data = {
     image: '',
     price: 0.025,
     available: 20000
-  },
-  withdrawable: true
+  }
 }
 
 function Example () {
