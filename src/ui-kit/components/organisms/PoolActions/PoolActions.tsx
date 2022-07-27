@@ -18,7 +18,7 @@ export interface PoolToken extends Token {
 export interface Data {
   firstToken: PoolToken,
   secondToken: PoolToken,
-  providedLiquidity: number
+  withdrawable: boolean
 }
 
 export type CustomFunction = (...args: any[]) => any
@@ -34,7 +34,11 @@ export interface Events {
   onSwitchTokens?: CustomFunction
 }
 
-export interface Props extends Events {
+export interface Calculations {
+  calcWithdraw?: CustomFunction
+}
+
+export interface Props extends Events, Calculations {
   data: Data,
   tab?: "Provide" | "Withdraw" | "Trade",
   className?: string
@@ -51,6 +55,7 @@ const PoolActions = ({
   onWithdraw,
   onTrade,
   onSwitchTokens,
+  calcWithdraw,
   data,
   tab = "Provide",
   className
@@ -69,7 +74,7 @@ const PoolActions = ({
   }
 
   const getTabs = useMemo(() => {
-    if (!!data.providedLiquidity) {
+    if (!!data.withdrawable) {
       return ["Provide", "Withdraw", "Trade"]
     } else {
       return ["Provide", "Trade"]
@@ -106,6 +111,7 @@ const PoolActions = ({
             data={data}
             onInput={onWithdrawInput}
             onConfirm={onWithdraw}
+            calcValues={calcWithdraw}
           />
         }
 

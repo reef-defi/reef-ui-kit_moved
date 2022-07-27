@@ -16,13 +16,25 @@ const data = {
     price: 0.025,
     available: 20000
   },
-  providedLiquidity: 2000
+  withdrawable: true
 }
 
 function Example () {
   const onProvide = e => console.log("Provide", e)
   const onWithdraw = e => console.log("Withdraw", e)
   const onTrade = e => console.log("Trade", e)
+
+  const calcWithdraw = (percentage) => {
+    const providedLiquidity = 1000
+    const providedReefTokens = 250
+    const providedTestTokens = 500
+    
+    const value = providedLiquidity * percentage / 100
+    const firstToken = providedReefTokens * percentage / 100
+    const secondToken = providedTestTokens * percentage / 100
+
+    return { value, firstToken, secondToken }
+  }
 
   return (
     <>
@@ -34,6 +46,7 @@ function Example () {
         onProvide={onProvide}
         onWithdraw={onWithdraw}
         onTrade={onTrade}
+        calcWithdraw={calcWithdraw}
       />
     </>
   )
