@@ -18,34 +18,54 @@ const data = {
   }
 }
 
-function Example () {
-  const onProvide = e => console.log("Provide", e)
-  const onWithdraw = e => console.log("Withdraw", e)
-  const onTrade = e => console.log("Trade", e)
-
-  const calcWithdraw = (percentage) => {
-    const providedLiquidity = 1000
-    const providedReefTokens = 250
-    const providedTestTokens = 500
-    
-    const value = providedLiquidity * percentage / 100
-    const firstToken = providedReefTokens * percentage / 100
-    const secondToken = providedTestTokens * percentage / 100
-
-    return { value, firstToken, secondToken }
+const calcProvide = ({
+  firstToken,
+  secondToken,
+  percentage
+}: {
+  firstToken?: number,
+  secondToken?: number,
+  percentage?: number
+}): { firstToken: number, secondToken: number, percentage: number, value: number } => {
+  return {
+    firstToken: 0,
+    secondToken: 0,
+    percentage: 0,
+    value: 0
   }
+}
 
+const calcWithdraw = ({
+  percentage
+}: {
+  percentage: number
+}): { firstToken: number, secondToken: number, value: number } => {
+  return {
+    firstToken: 0,
+    secondToken: 0,
+    value: 0
+  }
+}
+
+const onProvide = e => console.log("Provide", e)
+const onWithdraw = e => console.log("Withdraw", e)
+const onTrade = e => console.log("Trade", e)
+
+function Example () {
   return (
     <>
       <Title text='Pool Actions'/>
 
       <Uik.PoolActions
-        data={data}
         className="example-pool-actions"
+        data={data}
+
+        calcWithdraw={calcWithdraw}
+        calcProvide={calcProvide}
+        
         onProvide={onProvide}
         onWithdraw={onWithdraw}
         onTrade={onTrade}
-        calcWithdraw={calcWithdraw}
       />
     </>
   )

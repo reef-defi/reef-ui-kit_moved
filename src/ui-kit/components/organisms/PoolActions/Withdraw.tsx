@@ -36,13 +36,11 @@ const Withdraw = ({
 
     if (!calcValues) return defaultValues
     
-    return calcValues(percentage) || defaultValues
+    return calcValues({ percentage }) || defaultValues
   }, [ percentage ])
 
   const confirm = () => {
-    if (onConfirm) onConfirm({
-      percentage
-    })
+    if (onConfirm) onConfirm({ percentage })
   }
 
   return (

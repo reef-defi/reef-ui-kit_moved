@@ -34,6 +34,7 @@ export interface Events {
 }
 
 export interface Calculations {
+  calcProvide?: CustomFunction,
   calcWithdraw?: CustomFunction
 }
 
@@ -54,6 +55,7 @@ const PoolActions = ({
   onWithdraw,
   onTrade,
   onSwitchTokens,
+  calcProvide,
   calcWithdraw,
   data,
   tab = "Trade",
@@ -93,6 +95,7 @@ const PoolActions = ({
             data={data}
             onInput={onProvideInput}
             onConfirm={onProvide}
+            calcValues={calcProvide}
           />
         }
 
