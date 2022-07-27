@@ -34,8 +34,8 @@ export interface Events {
 }
 
 export interface Calculations {
-  calcProvide?: CustomFunction,
-  calcWithdraw?: CustomFunction
+  calcProvide?: (args: { firstToken?: number, secondToken?: number, percentage?: number }) => { firstToken: number, secondToken: number, percentage: number, value: number },
+  calcWithdraw?: (args: { percentage: number }) => { firstToken: number, secondToken: number, value: number }
 }
 
 export interface Props extends Events, Calculations {
