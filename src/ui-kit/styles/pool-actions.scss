@@ -209,6 +209,7 @@
 
       .uik-pool-actions-token__price {
         position: absolute;
+        width: calc(100% - 15px - 18px);
         right: 18px;
         bottom: 15px;
         font-size: 13px;
@@ -222,6 +223,9 @@
         white-space: nowrap;
         line-height: 1;
         pointer-events: none;
+        text-align: right;
+        overflow: hidden;
+        text-overflow: ellipsis;
         transition: all 0.18s;
 
         & + input {
@@ -427,6 +431,14 @@
             var(--text-light--l),
             0.5
           );
+      }
+    }
+
+    & + .uik-pool-actions__summary {
+      margin-top: 50px;
+      
+      & + .uik-pool-actions__slider {
+        margin-top: 30px;
       }
     }
   }

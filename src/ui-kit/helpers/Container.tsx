@@ -1,11 +1,12 @@
-import { createRoot, Root } from 'react-dom/client';
+import ReactDOM from 'react-dom';
 
 class Container {
   id: string
-  root: Root | undefined
+  root: HTMLElement
 
   constructor (id: string) {
     this.id = id
+    this.root = null
   }
 
   getElement = () => {
@@ -21,21 +22,18 @@ class Container {
       document.body.appendChild(el)
     }
 
-    this.root = createRoot(el!)
+    this.root = el
   }
 
-  render = (children: React.ReactChild | Iterable<React.ReactNode>) => {
+  render = (children) => {
     if (!this.root) this.create()
-    if (this.root) this.root.render(children)
+    if (this.root) ReactDOM.render(children, this.root)
   }
 
   destroy = () => {
     if (!this.root) return
-
-    this.root.unmount()
-    this.root = undefined
-    let el = this.getElement()
-    el?.remove()
+    this.root.remove()
+    this.root = null
   }
 }
 

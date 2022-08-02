@@ -1,6 +1,7 @@
-import { useState, useMemo } from "react"
+import { useState } from "react"
 import Tabs from "../../atoms/Tabs"
-import Manage from "./Manage"
+import Provide from "./Provide"
+import Withdraw from "./Withdraw"
 import Trade from "./Trade"
 
 export interface Token {
@@ -11,7 +12,6 @@ export interface Token {
 
 export interface PoolToken extends Token {
   available: number,
-  providing?: number,
   price: number
 }
 
@@ -29,10 +29,16 @@ export interface Events {
   onTradeInput?: CustomFunction,
   onProvide?: CustomFunction,
   onWithdraw?: CustomFunction,
-  onTrade?: CustomFunction
+  onTrade?: CustomFunction,
+  onSwitchTokens?: CustomFunction
 }
 
-export interface Props extends Events {
+export interface Calculations {
+  calcProvide?: (args: { firstToken?: number, secondToken?: number, percentage?: number }) => { firstToken: number, secondToken: number, percentage: number, value: number },
+  calcWithdraw?: (args: { percentage: number }) => { firstToken: number, secondToken: number, value: number }
+}
+
+export interface Props extends Events, Calculations {
   data: Data,
   tab?: "Provide" | "Withdraw" | "Trade",
   className?: string
@@ -48,8 +54,11 @@ const PoolActions = ({
   onProvide,
   onWithdraw,
   onTrade,
+  onSwitchTokens,
+  calcProvide,
+  calcWithdraw,
   data,
-  tab = "Provide",
+  tab = "Trade",
   className
 }: Props): JSX.Element => {
   const [ currentTab, setTab ] = useState(tab)
@@ -65,17 +74,6 @@ const PoolActions = ({
     setTab(value)
   }
 
-  const getTabs = useMemo(() => {
-    if (
-      !!data.firstToken.providing ||
-      !!data.secondToken.providing
-    ) {
-      return ["Provide", "Withdraw", "Trade"]
-    } else {
-      return ["Provide", "Trade"]
-    }
-  }, [ data ])
-
   return (
     <div
       className={`
@@ -87,27 +85,27 @@ const PoolActions = ({
         <Tabs
           value={currentTab}
           onChange={value => selectTab(value)}
-          options={getTabs}
+          options={["Trade", "Provide", "Withdraw"]}
         />
       </div>
 
       {
           currentTab === "Provide" &&
-          <Manage
-            action="provide"
+          <Provide
             data={data}
             onInput={onProvideInput}
             onConfirm={onProvide}
+            calcValues={calcProvide}
           />
         }
 
         {
           currentTab === "Withdraw" &&
-          <Manage
-            action="withdraw"
+          <Withdraw
             data={data}
             onInput={onWithdrawInput}
             onConfirm={onWithdraw}
+            calcValues={calcWithdraw}
           />
         }
 
@@ -117,6 +115,7 @@ const PoolActions = ({
             data={data}
             onInput={onTradeInput}
             onConfirm={onTrade}
+            onSwitchTokens={onSwitchTokens}
           />
         }
     </div>

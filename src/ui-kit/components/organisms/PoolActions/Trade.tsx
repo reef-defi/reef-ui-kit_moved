@@ -12,7 +12,8 @@ import Icon from "../../atoms/Icon"
 export interface Props {
   data: Data,
   onInput?: CustomFunction,
-  onConfirm?: CustomFunction
+  onConfirm?: CustomFunction,
+  onSwitchTokens?: CustomFunction
 }
 
 const SummaryItem = ({
@@ -38,10 +39,11 @@ const SummaryItem = ({
   </div>
 )
 
-const Provide = ({
+const Trade = ({
   data,
   onInput,
-  onConfirm
+  onConfirm,
+  onSwitchTokens
 }: Props): JSX.Element => {
   const [values, setValues] = useState({
     percentage: 0,
@@ -70,7 +72,14 @@ const Provide = ({
     data.secondToken
   ])
 
-  const switchTokens = () => { 
+  const switchTokens = () => {
+    if (onSwitchTokens) {
+      onSwitchTokens({
+        from: data[toTokenKey],
+        to: data[fromTokenKey]
+      })
+    }
+    
     setFromTokenKey(toTokenKey)
     setValue({ percentage: 0 })
   }
@@ -343,4 +352,4 @@ const Provide = ({
   )
 }
 
-export default Provide
+export default Trade
