@@ -34,52 +34,52 @@ function Example () {
       <Uik.Text type="title" className='example-avatar__title'>Avatar library</Uik.Text>
 
       <Uik.Container flow="spaceBetween">
-        <Uik.Avatar avatar="1" size="extra-large"/>
-        <Uik.Avatar avatar="2" size="extra-large"/>
-        <Uik.Avatar avatar="3" size="extra-large"/>
-        <Uik.Avatar avatar="4" size="extra-large"/>
-        <Uik.Avatar avatar="5" size="extra-large"/>
-        <Uik.Avatar avatar="6" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/1.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/2.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/3.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/4.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/5.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/6.png" size="extra-large"/>
       </Uik.Container>
       <Uik.Container flow="spaceBetween">
-        <Uik.Avatar avatar="7" size="extra-large"/>
-        <Uik.Avatar avatar="8" size="extra-large"/>
-        <Uik.Avatar avatar="9" size="extra-large"/>
-        <Uik.Avatar avatar="10" size="extra-large"/>
-        <Uik.Avatar avatar="11" size="extra-large"/>
-        <Uik.Avatar avatar="12" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/7.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/8.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/9.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/10.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/11.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/12.png" size="extra-large"/>
       </Uik.Container>
       <Uik.Container flow="spaceBetween">
-        <Uik.Avatar avatar="13" size="extra-large"/>
-        <Uik.Avatar avatar="14" size="extra-large"/>
-        <Uik.Avatar avatar="15" size="extra-large"/>
-        <Uik.Avatar avatar="16" size="extra-large"/>
-        <Uik.Avatar avatar="17" size="extra-large"/>
-        <Uik.Avatar avatar="18" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/13.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/14.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/15.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/16.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/17.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/18.png" size="extra-large"/>
       </Uik.Container>
       <Uik.Container flow="spaceBetween">
-        <Uik.Avatar avatar="19" size="extra-large"/>
-        <Uik.Avatar avatar="20" size="extra-large"/>
-        <Uik.Avatar avatar="21" size="extra-large"/>
-        <Uik.Avatar avatar="22" size="extra-large"/>
-        <Uik.Avatar avatar="23" size="extra-large"/>
-        <Uik.Avatar avatar="24" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/19.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/20.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/21.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/22.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/23.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/24.png" size="extra-large"/>
       </Uik.Container>
       <Uik.Container flow="spaceBetween">
-        <Uik.Avatar avatar="25" size="extra-large"/>
-        <Uik.Avatar avatar="26" size="extra-large"/>
-        <Uik.Avatar avatar="27" size="extra-large"/>
-        <Uik.Avatar avatar="28" size="extra-large"/>
-        <Uik.Avatar avatar="29" size="extra-large"/>
-        <Uik.Avatar avatar="30" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/25.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/26.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/27.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/28.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/29.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/30.png" size="extra-large"/>
       </Uik.Container>
       <Uik.Container flow="spaceBetween">
-        <Uik.Avatar avatar="31" size="extra-large"/>
-        <Uik.Avatar avatar="32" size="extra-large"/>
-        <Uik.Avatar avatar="33" size="extra-large"/>
-        <Uik.Avatar avatar="34" size="extra-large"/>
-        <Uik.Avatar avatar="35" size="extra-large"/>
-        <Uik.Avatar avatar="36" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/31.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/32.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/33.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/34.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/35.png" size="extra-large"/>
+        <Uik.Avatar image="/images/avatars/36.png" size="extra-large"/>
       </Uik.Container>
     </>
   )
@@ -109,42 +109,42 @@ const code = `<>
     size="small"
   />
 
-  <Uik.Avatar avatar="1" size="extra-large"/>
-  <Uik.Avatar avatar="2" size="extra-large"/>
-  <Uik.Avatar avatar="3" size="extra-large"/>
-  <Uik.Avatar avatar="4" size="extra-large"/>
-  <Uik.Avatar avatar="5" size="extra-large"/>
-  <Uik.Avatar avatar="6" size="extra-large"/>
-  <Uik.Avatar avatar="7" size="extra-large"/>
-  <Uik.Avatar avatar="8" size="extra-large"/>
-  <Uik.Avatar avatar="9" size="extra-large"/>
-  <Uik.Avatar avatar="10" size="extra-large"/>
-  <Uik.Avatar avatar="11" size="extra-large"/>
-  <Uik.Avatar avatar="12" size="extra-large"/>
-  <Uik.Avatar avatar="13" size="extra-large"/>
-  <Uik.Avatar avatar="14" size="extra-large"/>
-  <Uik.Avatar avatar="15" size="extra-large"/>
-  <Uik.Avatar avatar="16" size="extra-large"/>
-  <Uik.Avatar avatar="17" size="extra-large"/>
-  <Uik.Avatar avatar="18" size="extra-large"/>
-  <Uik.Avatar avatar="19" size="extra-large"/>
-  <Uik.Avatar avatar="20" size="extra-large"/>
-  <Uik.Avatar avatar="21" size="extra-large"/>
-  <Uik.Avatar avatar="22" size="extra-large"/>
-  <Uik.Avatar avatar="23" size="extra-large"/>
-  <Uik.Avatar avatar="24" size="extra-large"/>
-  <Uik.Avatar avatar="25" size="extra-large"/>
-  <Uik.Avatar avatar="26" size="extra-large"/>
-  <Uik.Avatar avatar="27" size="extra-large"/>
-  <Uik.Avatar avatar="28" size="extra-large"/>
-  <Uik.Avatar avatar="29" size="extra-large"/>
-  <Uik.Avatar avatar="30" size="extra-large"/>
-  <Uik.Avatar avatar="31" size="extra-large"/>
-  <Uik.Avatar avatar="32" size="extra-large"/>
-  <Uik.Avatar avatar="33" size="extra-large"/>
-  <Uik.Avatar avatar="34" size="extra-large"/>
-  <Uik.Avatar avatar="35" size="extra-large"/>
-  <Uik.Avatar avatar="36" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/1.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/2.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/3.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/4.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/5.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/6.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/7.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/8.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/9.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/10.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/11.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/12.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/13.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/14.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/15.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/16.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/17.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/18.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/19.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/20.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/21.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/22.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/23.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/24.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/25.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/26.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/27.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/28.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/29.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/30.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/31.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/32.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/33.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/34.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/35.png" size="extra-large"/>
+  <Uik.Avatar image="/images/avatars/36.png" size="extra-large"/>
 </>`
 
 export default Example
