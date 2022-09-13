@@ -39,6 +39,7 @@ const Example = () => (
         <Demo.QRCode/>
         <Demo.Code/>
         <Demo.Notifications/>
+        <Demo.Prompt/>
         <Demo.AccountSelector/>
         <Demo.CopyButton/>
         <Demo.PoolActions/>

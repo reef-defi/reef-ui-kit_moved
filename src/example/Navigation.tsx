@@ -57,7 +57,8 @@ const content = [
   {
     title: 'Molecules',
     links: [
-      "Notifications"
+      "Notifications",
+      "Prompt"
     ]
   },
   {

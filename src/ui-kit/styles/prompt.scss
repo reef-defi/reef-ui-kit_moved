@@ -1,0 +1,62 @@
+.uik-prompt {
+  .uik-prompt__modal {
+    .uik-modal__container {
+      .uik-modal__popup {
+        width: 550px;
+        position: relative;
+
+        .uik-modal__head {
+          .uik-modal__title {
+            padding-left: 1.875rem;
+          }
+        }
+      }
+    }
+
+    .uik-prompt__icon {
+      position: absolute;
+      left: 25px;
+      top: 25px;
+      height: 1.375rem;
+    }
+
+    .uik-prompt__message {
+      white-space: pre-wrap;
+    }
+
+    .uik-prompt__actions {
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-end;
+      align-items: center;
+
+      > * {
+        flex-grow: 1;
+        flex-basis: 0;
+
+        & + * {
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+
+  &--info {
+    .uik-prompt__icon {
+      color: var(--primary);
+    }
+  }
+
+  &--success {
+    .uik-prompt__icon {
+      color: var(--success);
+    }
+  }
+
+  &--danger {
+    .uik-prompt__icon {
+      color: var(--danger);
+    }
+  }
+}

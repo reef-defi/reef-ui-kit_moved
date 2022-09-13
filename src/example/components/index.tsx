@@ -38,6 +38,7 @@ import Trend from "./Trend"
 import ReefAmount from "./ReefAmount"
 import Slider from "./Slider"
 import PoolActions from "./PoolActions"
+import Prompt from "./Prompt"
 
 const examples = {
   Alert,
@@ -79,7 +80,8 @@ const examples = {
   Trend,
   ReefAmount,
   Slider,
-  PoolActions
+  PoolActions,
+  Prompt
 }
 
 export default examples
