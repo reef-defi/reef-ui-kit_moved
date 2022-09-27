@@ -10,7 +10,8 @@ import Tabs from "../../atoms/Tabs"
 export type Account = {
   name?: string,
   address: string,
-  evmAddress?: string
+  evmAddress?: string,
+  source?: string
 }
 
 export type Network = 'mainnet' | 'testnet'
@@ -39,7 +40,9 @@ const AccountSelector = ({
   const wrapper = useRef(null)
 
   const isSelected = (account: Account): boolean => {
-    return !!selectedAccount?.address && account.address === selectedAccount.address
+    return !!selectedAccount?.address
+      && account.address === selectedAccount.address
+      && account.source === selectedAccount.source
   }
 
   const select = (account: Account) => {
@@ -108,6 +111,7 @@ const AccountSelector = ({
                     name={account.name}
                     address={account.address}
                     evmAddress={account.evmAddress}
+                    source={account.source}
                     onSelect={() => select(account)}
                     isSelected={isSelected(account)}
                   />
