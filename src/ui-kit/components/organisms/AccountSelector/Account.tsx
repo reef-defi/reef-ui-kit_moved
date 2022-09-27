@@ -7,7 +7,8 @@ import QRCode from "../../atoms/QRCode"
 export interface Props {
   name?: string,
   address: string,
-  evmAddress?: string
+  evmAddress?: string,
+  source?: string,
   isSelected?: boolean,
   onSelect?: (...args: any[]) => any,
   className?: string
@@ -17,6 +18,7 @@ const Account = ({
   name,
   address,
   evmAddress,
+  source,
   isSelected,
   onSelect,
   className
@@ -37,7 +39,13 @@ const Account = ({
     />
 
     <div className='uik-account-selector-account__info'>
-      <div className='uik-account-selector-account__name'>{ name }</div>
+      <div className='uik-account-selector-account__name'>
+        <span>{ name }</span>
+        {
+          !!source && source !== "reef" &&
+          <span className="uik-account-selector-account__source">{ source }</span>
+        }
+      </div>
       
       <div className='uik-account-selector-account__address'>
         <div>Native address: { formatAddress(address) }</div>

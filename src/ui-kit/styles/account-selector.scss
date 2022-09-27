@@ -180,6 +180,23 @@
       line-height: 1.2;
       font-weight: 500;
       color: var(--text);
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: left;
+
+      .uik-account-selector-account__source {
+        font-size: 0.688rem;
+        line-height: 1;
+        border-radius: 99rem;
+        color: white;
+        font-weight: 400;
+        padding: 0.25rem 0.5rem;
+        background-color: var(--primary);
+        margin: 0 10px;
+        white-space: nowrap;
+      }
       
       & + .uik-account-selector-account__address {
         margin-top: 6px;
@@ -203,7 +220,7 @@
       align-items: center;
 
       .uik-copy-button {
-        margin-left: 3px;
+        margin-left: 5px;
       }
     }
 
