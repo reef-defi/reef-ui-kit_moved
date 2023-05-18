@@ -87,7 +87,7 @@ const AccountSelector = ({
               <div className="uik-account-selector__title">Select Account</div>
 
               {
-                !!selectedNetwork && !!onNetworkSelect &&
+                !!selectedLanguage && !!onLanguageSelect &&
 <div className="uik-account-selector__language">
   
               <Button
