@@ -93,6 +93,15 @@
           }
         }
 
+        .uik-account-selector__language {
+          margin-right: calc(54px);
+          margin-left: 20px;
+          .uik-tabs__tab {
+            font-size: 14px;
+            padding: 9px 12px;
+          }
+        }
+
         .uik-account-selector__close-btn {
           position: absolute;
           right: 0;
