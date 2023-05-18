@@ -53,11 +53,19 @@ export const formatHumanAmount = (amount: number | string, decPlaces: number = 2
         i++
       }
 
-      amount = `${amount} ${abbrev[i]}`
-      break
+      return String(`${amount} ${abbrev[i]}`);
     }
   }
 
+  if (amount < 1 / decPlaces) {
+    const exponentialNotation = amount.toExponential();
+    const parts = exponentialNotation.split(/e/i);
+    const coefficient = Math.round(parseFloat(parts[0]) * decPlaces) / decPlaces;
+    const exponent = parseInt(parts[1]);
+    return `${coefficient}e${exponent}`;
+  }
+
+  amount = Math.round(amount * decPlaces) / decPlaces
   return String(amount)
 }
 
