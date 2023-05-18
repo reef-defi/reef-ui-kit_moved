@@ -18,14 +18,13 @@ export type Account = {
 }
 
 export type Network = 'mainnet' | 'testnet'
-export type Language = 'english' | 'hindi'
+export type Language = 'en' | 'hi'
 
 export interface Props {
   isOpen: boolean,
   accounts?: Account[],
   selectedAccount?: Account | null | undefined,
   selectedNetwork?: Network,
-  selectedLanguage?:Language,
   onClose?: (...args: any[]) => any,
   onSelect?: (...args: any[]) => any,
   onNetworkSelect?: (network: Network) => any,
@@ -38,7 +37,6 @@ const AccountSelector = ({
   accounts,
   selectedAccount,
   selectedNetwork,
-  selectedLanguage,
   onClose,
   onSelect,
   onNetworkSelect,
@@ -87,14 +85,13 @@ const AccountSelector = ({
               <div className="uik-account-selector__title">Select Account</div>
 
               {
-                !!selectedLanguage && !!onLanguageSelect &&
+               !!onLanguageSelect &&
 <div className="uik-account-selector__language">
   
               <Button
     fill
     text='Choose Language'
     size='large'
-    icon={faGlobe}
     onClick={() => setLanguageDropdown(true)}
   /> 
   <Dropdown
@@ -104,12 +101,12 @@ const AccountSelector = ({
       <DropdownItem
         icon={faGlobe}
         text='English'
-        onClick={() => {}}
+        onClick={() => onLanguageSelect('en')}
       />
       <DropdownItem
         icon={faGlobe}
         text='Hindi'
-        onClick={() => {}}
+        onClick={() => onLanguageSelect('hi')}
       />
       
   </Dropdown>
