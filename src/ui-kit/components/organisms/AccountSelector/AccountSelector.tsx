@@ -1,11 +1,14 @@
-import { useRef } from "react"
+import { useRef ,useState} from "react"
 import { CSSTransition } from 'react-transition-group';
 
 import Icon from "./../../atoms/Icon"
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import {  faGlobe, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import AccountComponent from "./Account"
 import Tabs from "../../atoms/Tabs"
+import Dropdown from "../../atoms/Dropdown/Dropdown"
+import DropdownItem from "../../atoms/Dropdown/DropdownItem"
+import Button from "../../atoms/Button";
 
 export type Account = {
   name?: string,
@@ -15,6 +18,7 @@ export type Account = {
 }
 
 export type Network = 'mainnet' | 'testnet'
+export type Language = 'en' | 'hi'
 
 export interface Props {
   isOpen: boolean,
@@ -24,6 +28,7 @@ export interface Props {
   onClose?: (...args: any[]) => any,
   onSelect?: (...args: any[]) => any,
   onNetworkSelect?: (network: Network) => any,
+  onLanguageSelect?: (language: Language) => any,
   className?: string
 }
 
@@ -35,6 +40,7 @@ const AccountSelector = ({
   onClose,
   onSelect,
   onNetworkSelect,
+  onLanguageSelect,
   className
 }: Props): JSX.Element => {
   const wrapper = useRef(null)
@@ -51,6 +57,8 @@ const AccountSelector = ({
 
   const opened = () => document.body.style.overflow = "hidden"
   const closed = () => document.body.style.overflow = ""
+
+  const [isLanguageDropdownOpen, setLanguageDropdown] = useState(false)
 
   return (
     <div
@@ -77,6 +85,35 @@ const AccountSelector = ({
               <div className="uik-account-selector__title">Select Account</div>
 
               {
+               !!onLanguageSelect &&
+<div className="uik-account-selector__language">
+  
+              <Button
+    fill
+    text='Choose Language'
+    size='large'
+    onClick={() => setLanguageDropdown(true)}
+  /> 
+  <Dropdown
+    isOpen={isLanguageDropdownOpen}
+    onClose={() => setLanguageDropdown(false)}
+  >
+      <DropdownItem
+        icon={faGlobe}
+        text='English'
+        onClick={() => onLanguageSelect('en')}
+      />
+      <DropdownItem
+        icon={faGlobe}
+        text='Hindi'
+        onClick={() => onLanguageSelect('hi')}
+      />
+      
+  </Dropdown>
+</div>
+}
+
+              {
                 !!selectedNetwork && !!onNetworkSelect &&
                 <Tabs
                   className="uik-account-selector__network"
@@ -87,8 +124,8 @@ const AccountSelector = ({
                   ]}
                   onChange={onNetworkSelect}
                 />
-              }
-
+                }
+             
               <button
                 className="uik-account-selector__close-btn"
                 type="button"
