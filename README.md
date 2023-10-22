@@ -1,6 +1,6 @@
 # Reef UI Kit
 
-#Moved to https://github.com/reef-chain/ui-kit
+# Moved to https://github.com/reef-chain/ui-kit
 
 ### Reef's UI library of components, assets and helpers
 
